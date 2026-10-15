@@ -501,6 +501,8 @@ footer{
   /* brand + CTA + burger don't fit on one row at 375px, and the brand was
      wrapping onto a second line and pushing the nav into the hero */
   #navCta{ display:none; }          /* the drawer still carries the CTA */
+  /* the pill wraps to 3 lines on a phone — a lozenge radius looks wrong there */
+  .offer-pill{ border-radius:10px; padding:12px 16px; gap:8px; }
   .brand{ font-size:1.12rem; letter-spacing:.07em; }
   h1{ font-size:clamp(2.5rem,10vw,3.2rem); }
   .hero{ padding:120px 0 70px; min-height:auto; }

@@ -80,6 +80,14 @@ const revealIO = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.rv').forEach(el => revealIO.observe(el));
 
+/* Failsafe: if anything stops the observer from firing, force everything
+   visible rather than leaving the page blank. */
+setTimeout(() => {
+  document.querySelectorAll('.rv:not(.in)').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('in');
+  });
+}, 3000);
+
 /* Hero headline word reveal.
    Not inside requestAnimationFrame: rAF is paused while a tab is hidden, which
    would leave the headline stuck off-screen until the tab was focused. */
