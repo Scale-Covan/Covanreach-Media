@@ -3,194 +3,420 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Covanreach Media | Social Media Management &amp; Content for Local Businesses</title>
-<meta name="description" content="Covanreach Media is a premium social media management and content production agency helping local businesses grow with strategy, content, and paid ads.">
+<title>Covanreach Media | Social Media &amp; Content for Local Business</title>
+<meta name="description" content="Covanreach Media shoots, edits, and runs social media and paid ads for local businesses in Clarksville, Nashville, and Middle Tennessee. First month of ad management free.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>C</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="app.css">
+<!-- Marks that JS is alive. Animations only hide content when this is set,
+     so a failed/blocked app.js still renders a fully visible page. -->
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
+<div class="progress" id="progress"></div>
+<div class="spotlight" id="spotlight"></div>
 <div class="grain"></div>
 
-<header class="site-header" id="siteHeader">
-  <div class="container header-inner">
-    <a href="#top" class="brand">COVANREACH <span>MEDIA</span></a>
-    <nav class="nav-desktop">
-      <a href="#top" class="active">Home</a>
-      <a href="services.html">Services</a>
-      <a href="who-we-help.html">Who We Help</a>
-      <a href="data.html">Data</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a href="#contact" class="btn btn-gold btn-small nav-cta">Get Started</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="brand">COVANREACH <b>MEDIA</b></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#industries">Who We Help</a>
+      <a href="#data">Data</a>
+      <a href="#scorecard">Scorecard</a>
+    </div>
+    <a href="#contact" class="btn btn-gold btn-sm" id="navCta">Free Month</a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <nav class="nav-mobile" id="navMobile">
-    <a href="#top" class="active">Home</a>
-    <a href="services.html">Services</a>
-    <a href="who-we-help.html">Who We Help</a>
-    <a href="data.html">Data</a>
-    <a href="#contact">Contact</a>
-    <a href="#contact" class="btn btn-gold btn-small">Get Started</a>
-  </nav>
-</header>
+  <div class="drawer" id="drawer">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#industries">Who We Help</a>
+    <a href="#data">Data</a>
+    <a href="#scorecard">Scorecard</a>
+    <a href="#contact" class="btn btn-gold btn-sm">Claim Free Month</a>
+  </div>
+</nav>
 
 <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="hero">
     <div class="hero-glow"></div>
-    <div class="container hero-inner">
-      <p class="eyebrow reveal">Social Media &amp; Content Growth Agency</p>
-      <div class="offer-strip reveal">
-        <span class="flag">New Clients</span>
-        <span class="txt">First month of ad management free</span>
-        <span class="fine">&mdash; ad spend not included</span>
+    <div class="wrap hero-in">
+      <div class="offer-pill rv">
+        <span class="tag">New Clients</span>
+        <span class="t">First month of ad management free</span>
+        <span class="f">&mdash; ad spend not included</span>
       </div>
-      <h1 class="reveal">Turn Your Local Business Into <span class="gold-text">The Brand Everyone Talks About</span></h1>
-      <p class="hero-sub reveal">Covanreach Media builds and runs your social presence end-to-end &mdash; strategy, content, and paid growth &mdash; so you stay focused on running your business.</p>
-      <div class="hero-actions reveal">
-        <a href="#contact" class="btn btn-gold btn-large">Claim Your Free Month</a>
-        <a href="services.html" class="btn btn-ghost btn-large">What We Do</a>
-      </div>
-    </div>
-    <a href="#services" class="scroll-cue" aria-label="Scroll down"><span></span></a>
-  </section>
 
-  <!-- MARQUEE -->
-  <section class="marquee-wrap" id="services" aria-label="Our services">
-    <div class="marquee-track">
-      <div class="marquee-group">
-        <span>Social Media Management</span><span class="dot">&#9670;</span>
-        <span>Content Creation</span><span class="dot">&#9670;</span>
-        <span>Paid Ads Management</span><span class="dot">&#9670;</span>
-        <span>Growth Strategy</span><span class="dot">&#9670;</span>
-        <span>Reels &amp; Video Production</span><span class="dot">&#9670;</span>
-        <span>Photography</span><span class="dot">&#9670;</span>
-        <span>Brand Positioning</span><span class="dot">&#9670;</span>
+      <h1 id="heroLine">
+        <span class="reveal-word"><i>We</i></span>
+        <span class="reveal-word"><i>shoot</i></span>
+        <span class="reveal-word"><i>it,</i></span>
+        <span class="reveal-word"><i>cut</i></span>
+        <span class="reveal-word"><i>it,</i></span>
+        <span class="reveal-word"><i>and</i></span>
+        <span class="reveal-word"><i class="gold">post&nbsp;it.</i></span>
+      </h1>
+
+      <p class="hero-sub rv rv-d2">Social media, content production, and paid ads for local businesses across Middle Tennessee. You run the place. We handle the part that happens on a screen.</p>
+
+      <div class="hero-cta rv rv-d3">
+        <a href="#contact" class="btn btn-gold magnet">Claim Your Free Month</a>
+        <a href="#scorecard" class="btn btn-ghost magnet">Score My Visibility</a>
       </div>
-      <div class="marquee-group" aria-hidden="true">
-        <span>Social Media Management</span><span class="dot">&#9670;</span>
-        <span>Content Creation</span><span class="dot">&#9670;</span>
-        <span>Paid Ads Management</span><span class="dot">&#9670;</span>
-        <span>Growth Strategy</span><span class="dot">&#9670;</span>
-        <span>Reels &amp; Video Production</span><span class="dot">&#9670;</span>
-        <span>Photography</span><span class="dot">&#9670;</span>
-        <span>Brand Positioning</span><span class="dot">&#9670;</span>
+
+      <div class="hero-meta rv rv-d4">
+        <div class="m"><div class="n">3</div><div class="l">Services, One Team</div></div>
+        <div class="m"><div class="n">30</div><div class="l">Days Free Ad Management</div></div>
+        <div class="m"><div class="n">1</div><div class="l">Point of Contact</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT / WHAT WE DO -->
-  <section class="about" id="about">
-    <div class="container about-grid">
-      <div class="about-copy reveal">
-        <p class="eyebrow">What We Do</p>
-        <h2>Social Media Management &amp; Content Production, <span class="gold-text">Built for Local Businesses</span></h2>
-        <p class="lead">Most local businesses don't have time to post consistently, plan content, or run ads correctly &mdash; and it shows. We become your in-house social team, minus the overhead.</p>
-        <div class="about-points">
-          <div class="point">
-            <span class="point-num">01</span>
-            <div>
-              <h3>Done-For-You Social Management</h3>
-              <p>Daily management of your profiles &mdash; posting, captions, community replies, and a content calendar tailored to your brand.</p>
-            </div>
-          </div>
-          <div class="point">
-            <span class="point-num">02</span>
-            <div>
-              <h3>Professional Content Production</h3>
-              <p>On-site photo and video shoots that turn your everyday business into scroll-stopping reels and posts.</p>
-            </div>
-          </div>
-          <div class="point">
-            <span class="point-num">03</span>
-            <div>
-              <h3>Paid Growth &amp; Strategy</h3>
-              <p>Google and Meta ad campaigns built to bring in real customers, backed by a strategy that evolves every month.</p>
-            </div>
-          </div>
-        </div>
+  <!-- ============ MARQUEE ============ -->
+  <div class="marq" aria-hidden="true">
+    <div class="marq-track" id="marq">
+      <div class="marq-g">
+        <span>Social Media Management</span><i>&#9670;</i>
+        <span>Content Creation</span><i>&#9670;</i>
+        <span>Paid Ads</span><i>&#9670;</i>
+        <span>Growth Strategy</span><i>&#9670;</i>
+        <span>Reels &amp; Video</span><i>&#9670;</i>
+        <span>Photography</span><i>&#9670;</i>
       </div>
-      <div class="about-visual reveal">
-        <div class="stat-card">
-          <span class="stat-number">3</span>
-          <span class="stat-label">Core Services, One Team</span>
+      <div class="marq-g">
+        <span>Social Media Management</span><i>&#9670;</i>
+        <span>Content Creation</span><i>&#9670;</i>
+        <span>Paid Ads</span><i>&#9670;</i>
+        <span>Growth Strategy</span><i>&#9670;</i>
+        <span>Reels &amp; Video</span><i>&#9670;</i>
+        <span>Photography</span><i>&#9670;</i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ SERVICES ============ -->
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="kicker">01 &mdash; Services</p>
+        <h2>Three ways <span class="gold">in.</span></h2>
+        <p class="lead">Book a shoot, send us footage to cut, or hand over the whole account. Most people start with one and add the rest.</p>
+      </div>
+
+      <div class="svc">
+        <div class="svc-tabs rv" role="tablist">
+          <button class="svc-tab on" data-svc="0" role="tab" aria-selected="true">
+            <span class="idx">01 &mdash; Monthly</span>
+            <h3>Social Management</h3>
+            <p>We run the account. You stop posting.</p>
+          </button>
+          <button class="svc-tab" data-svc="1" role="tab" aria-selected="false">
+            <span class="idx">02 &mdash; Per Project</span>
+            <h3>Photo &amp; Videography</h3>
+            <p>We show up with the camera and shoot it.</p>
+          </button>
+          <button class="svc-tab" data-svc="2" role="tab" aria-selected="false">
+            <span class="idx">03 &mdash; Per Video</span>
+            <h3>Video Editing</h3>
+            <p>Send footage. Get back a reel.</p>
+          </button>
         </div>
-        <div class="stat-card offset">
-          <span class="stat-number">100%</span>
-          <span class="stat-label">Focused on Local Business Growth</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-number">1</span>
-          <span class="stat-label">Point of Contact, Zero Guesswork</span>
+
+        <div class="svc-panel rv rv-d1">
+          <div class="svc-pane on" data-pane="0">
+            <h3>Social Management</h3>
+            <p class="tagline">Your account, run end to end &mdash; posted, written, and reviewed every month.</p>
+            <ul class="svc-list">
+              <li>Content calendar mapped a month ahead</li>
+              <li>Posting 3&ndash;4&times; per week, automated</li>
+              <li>Captions, hooks, and hashtags written</li>
+              <li>Trend and audio tracking for your market</li>
+              <li>Community replies and DMs handled</li>
+              <li>Google Business Profile kept current</li>
+              <li>Monthly performance review</li>
+              <li>Strategy adjusted on what's working</li>
+            </ul>
+          </div>
+
+          <div class="svc-pane" data-pane="1">
+            <h3>Photo &amp; Videography</h3>
+            <p class="tagline">On location across Middle Tennessee with a full kit and a contracted field videographer.</p>
+            <ul class="svc-list">
+              <li>Business and brand shoots</li>
+              <li>Property and walkthrough coverage</li>
+              <li>Music videos, short and full length</li>
+              <li>Vlog and day-in-the-life coverage</li>
+              <li>Car meets, shows, and events</li>
+              <li>360 walkthroughs and orbit shots</li>
+              <li>Canon EOS RP &amp; Rebel T1i bodies</li>
+              <li>DJI RS 3 Mini gimbal, R&oslash;de audio, Insta360</li>
+            </ul>
+          </div>
+
+          <div class="svc-pane" data-pane="2">
+            <h3>Video Editing</h3>
+            <p class="tagline">Send us footage, get back something postable. Half price when we shot it ourselves.</p>
+            <ul class="svc-list">
+              <li>Reels and short-form vertical</li>
+              <li>YouTube long-form edits</li>
+              <li>Music video cuts</li>
+              <li>Captions, hooks, and sound design</li>
+              <li>Color and audio cleanup</li>
+              <li>Two revisions included</li>
+              <li>Vertical and horizontal deliverables</li>
+              <li>Turnaround quoted before we start</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container contact-grid">
-      <div class="contact-copy reveal">
-        <p class="eyebrow">Get In Touch</p>
-        <h2>Let's Grow Your <span class="gold-text">Business Together</span></h2>
-        <p class="lead">Tell us a bit about your business and what you're looking for. We'll get back to you within one business day.</p>
-        <div class="contact-detail">
-          <span class="contact-icon">&#9993;</span>
+  <!-- ============ PROCESS ============ -->
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head center rv">
+        <p class="kicker center">02 &mdash; Process</p>
+        <h2>Four steps. You're only in <span class="gold">one of them.</span></h2>
+        <p class="lead">The monthly cycle, start to finish. It gets sharper every round.</p>
+      </div>
+
+      <div class="rail" id="rail">
+        <div class="rail-fill" id="railFill"></div>
+        <div class="step rv"><div class="dot">01</div>
+          <h3>Content Intake</h3>
+          <p>You send us footage, or we come shoot it. Either way we start with real material, not stock.</p>
+        </div>
+        <div class="step rv rv-d1"><div class="dot">02</div>
+          <h3>Calendar Mapped</h3>
+          <p>Every post gets a date and a purpose before anything goes live. You see the month ahead of time.</p>
+        </div>
+        <div class="step rv rv-d2"><div class="dot">03</div>
+          <h3>Scheduled &amp; Posted</h3>
+          <p>Posts go out 3&ndash;4 times a week on their own. Nobody has to remember.</p>
+        </div>
+        <div class="step rv rv-d3"><div class="dot">04</div>
+          <h3>Reviewed &amp; Adjusted</h3>
+          <p>We read what performed and rebuild next month's plan around it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INDUSTRIES ============ -->
+  <section id="industries">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="kicker">03 &mdash; Who We Help</p>
+        <h2>Businesses people find on a <span class="gold">phone.</span></h2>
+        <p class="lead">If your customers are local and your competition is three miles away, this is built for you. Pick your lane.</p>
+      </div>
+
+      <div class="ind-chips rv" id="chips" role="tablist">
+        <button class="chip on" data-ind="0">Restaurants</button>
+        <button class="chip" data-ind="1">Auto &amp; Detailing</button>
+        <button class="chip" data-ind="2">Barbers &amp; Salons</button>
+        <button class="chip" data-ind="3">Gyms &amp; Fitness</button>
+        <button class="chip" data-ind="4">Real Estate</button>
+        <button class="chip" data-ind="5">Contractors</button>
+        <button class="chip" data-ind="6">Musicians</button>
+        <button class="chip" data-ind="7">Events &amp; Sports</button>
+      </div>
+
+      <div class="ind-panel rv rv-d1" id="indPanel"></div>
+    </div>
+  </section>
+
+  <!-- ============ DATA ============ -->
+  <section id="data">
+    <div class="wrap">
+      <div class="sec-head center rv">
+        <p class="kicker center">04 &mdash; The Data</p>
+        <h2>We'd rather show you <span class="gold">the research.</span></h2>
+        <p class="lead">We're a new shop, so we won't wave someone else's screenshots at you. Here's the independent research on how local customers actually behave &mdash; sourced and linked, so you can check it.</p>
+      </div>
+
+      <div class="data-grid">
+        <div class="stat rv">
+          <div class="big" data-count="84" data-suffix="%">84%</div>
+          <p class="cl">searched for a local business in the last three months.</p>
+          <p class="sr">BrightLocal, Consumer Search Behavior 2026 &mdash; <a href="https://www.brightlocal.com/insights/local-seo-statistics/" target="_blank" rel="noopener">source</a></p>
+        </div>
+        <div class="stat rv rv-d1">
+          <div class="big" data-count="75" data-suffix="%">75%</div>
+          <p class="cl">choose a business within 30 minutes. 28% decide in under five.</p>
+          <p class="sr">BrightLocal, Consumer Search Behavior 2026 &mdash; <a href="https://www.brightlocal.com/insights/local-seo-statistics/" target="_blank" rel="noopener">source</a></p>
+        </div>
+        <div class="stat rv rv-d2">
+          <div class="big" data-count="72" data-suffix="%">72%</div>
+          <p class="cl">compare three or fewer businesses before picking one.</p>
+          <p class="sr">BrightLocal, Consumer Search Behavior 2026 &mdash; <a href="https://www.brightlocal.com/insights/local-seo-statistics/" target="_blank" rel="noopener">source</a></p>
+        </div>
+        <div class="stat rv">
+          <div class="big" data-count="73" data-suffix="%">73%</div>
+          <p class="cl">of local searches start on a phone, not a computer.</p>
+          <p class="sr">BrightLocal, Consumer Search Behavior 2026 &mdash; <a href="https://www.brightlocal.com/insights/local-seo-statistics/" target="_blank" rel="noopener">source</a></p>
+        </div>
+        <div class="stat rv rv-d1">
+          <div class="big" data-count="36" data-suffix="%">36%</div>
+          <p class="cl">of local ranking weight sits in your Google Business Profile.</p>
+          <p class="sr">Whitespark &amp; Moz, Local Search Ranking Factors 2026 &mdash; <a href="https://whitespark.ca/local-search-ranking-factors/" target="_blank" rel="noopener">source</a></p>
+        </div>
+        <div class="stat rv rv-d2">
+          <div class="big" data-count="97" data-suffix="%">97%</div>
+          <p class="cl">of consumers read online reviews before choosing.</p>
+          <p class="sr">BrightLocal, Local Consumer Review Survey 2026 &mdash; <a href="https://www.brightlocal.com/insights/local-seo-statistics/" target="_blank" rel="noopener">source</a></p>
+        </div>
+      </div>
+
+      <div class="note rv">
+        <p><b>What this means for you:</b> you aren't competing to be the best in town. You're competing to be one of the three results that come up on a phone in the first five minutes, and to look credible once you're there. That's a visibility problem and a presentation problem &mdash; both fixable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCORECARD ============ -->
+  <section id="scorecard">
+    <div class="wrap">
+      <div class="sec-head center rv">
+        <p class="kicker center">05 &mdash; Free Tool</p>
+        <h2>Score your local <span class="gold">visibility.</span></h2>
+        <p class="lead">Eight questions, no email required. These are the things that actually move local rankings.</p>
+      </div>
+
+      <div class="score">
+        <div class="score-q rv" id="scoreQ"></div>
+
+        <div class="score-out rv rv-d1">
+          <div class="dial">
+            <svg width="180" height="180" viewBox="0 0 180 180">
+              <defs>
+                <linearGradient id="goldgrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#8A712A"/>
+                  <stop offset="50%" stop-color="#F3D784"/>
+                  <stop offset="100%" stop-color="#D4AF37"/>
+                </linearGradient>
+              </defs>
+              <circle class="bg-ring" cx="90" cy="90" r="78"/>
+              <circle class="fg-ring" id="ring" cx="90" cy="90" r="78"
+                      stroke-dasharray="490" stroke-dashoffset="490"/>
+            </svg>
+            <div class="val"><span class="n" id="scoreNum">0</span><span class="d">out of 100</span></div>
+          </div>
+          <h3 id="scoreTitle">Answer the questions</h3>
+          <p id="scoreMsg">Tap yes or no on each one and your score builds as you go.</p>
+          <a href="#contact" class="btn btn-gold magnet" style="width:100%">Fix This For Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFER BAND ============ -->
+  <section id="offer">
+    <div class="wrap">
+      <div class="band rv">
+        <div>
+          <p class="kicker">New Client Offer</p>
+          <h2>First month of ad management <span class="gold">free.</span></h2>
+          <p class="lead">Thirty days of us building and running your campaigns before you pay a dollar in management fees. You keep the ad account and the data either way.</p>
+          <p class="fine">Ad spend is not included &mdash; that goes straight to Google or Meta, and you set the budget. No contract required to start.</p>
+        </div>
+        <div class="band-side">
+          <p class="loc">Clarksville &middot; Nashville &middot; Middle TN</p>
+          <a href="#contact" class="btn btn-gold magnet">Claim the Free Month</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="rv">
+        <p class="kicker">06 &mdash; Contact</p>
+        <h2 style="margin:16px 0 14px;">Let's get you <span class="gold">found.</span></h2>
+        <p class="lead">Tell us what you run and what you're trying to get out there. We'll come back within one business day with where we'd start.</p>
+        <div class="c-detail">
+          <span class="c-ico">&#9993;</span>
           <div>
-            <strong>Email us directly</strong>
+            <b>Email us directly</b>
             <p>scale@covanreachmedia.com</p>
           </div>
         </div>
+        <div class="c-detail">
+          <span class="c-ico">&#9678;</span>
+          <div>
+            <b>Service area</b>
+            <p>Clarksville, Nashville &amp; Middle Tennessee</p>
+          </div>
+        </div>
       </div>
 
-      <form id="contactForm" class="contact-form reveal" action="https://formspree.io/f/meeydnzj" method="POST">
-        <div class="form-row">
+      <form class="form rv rv-d1" id="form" action="https://formspree.io/f/meeydnzj" method="POST">
+        <div class="fr">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" placeholder="Your full name" required>
         </div>
-        <div class="form-row">
+        <div class="fr">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          <input type="email" id="email" name="email" placeholder="you@business.com" required>
         </div>
-        <div class="form-row">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" placeholder="Tell us about your business and goals..." required></textarea>
+        <div class="fr">
+          <label for="biz">Business type</label>
+          <select id="biz" name="business_type">
+            <option value="">Select one…</option>
+            <option>Restaurant / Café</option>
+            <option>Auto / Detailing</option>
+            <option>Barbershop / Salon</option>
+            <option>Gym / Fitness</option>
+            <option>Real Estate / Property</option>
+            <option>Contractor / Home Services</option>
+            <option>Musician / Artist</option>
+            <option>Events / Sports</option>
+            <option>Retail / Boutique</option>
+            <option>Other</option>
+          </select>
         </div>
-        <!-- Honeypot spam trap -->
+        <div class="fr">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" rows="5" placeholder="What are you trying to get out there?" required></textarea>
+        </div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <input type="hidden" name="_subject" value="New inquiry from Covanreach Media website">
+        <input type="hidden" name="visibility_score" id="scoreField" value="not completed">
 
-        <button type="submit" class="btn btn-gold btn-large form-submit">
-          <span class="btn-text">Send Message</span>
-        </button>
-
-        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        <button type="submit" class="btn btn-gold" id="submit"><span id="btnText">Send Message</span></button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
 </main>
 
-<footer class="site-footer">
-  <div class="container footer-inner">
-    <a href="#top" class="brand small">COVANREACH <span>MEDIA</span></a>
-    <p class="footer-copy">&copy; <span id="year"></span> Covanreach Media. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="services.html">Services</a>
-      <a href="who-we-help.html">Who We Help</a>
-      <a href="data.html">Data</a>
+<footer>
+  <div class="wrap foot-in">
+    <a href="#top" class="brand" style="font-size:1.05rem;">COVANREACH <b>MEDIA</b></a>
+    <p>&copy; <span id="yr"></span> Covanreach Media. All rights reserved.</p>
+    <div class="foot-nav">
+      <a href="#services">Services</a>
+      <a href="#industries">Who We Help</a>
+      <a href="#data">Data</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </footer>
 
-<script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
