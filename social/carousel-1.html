@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carousel 1 — Pros &amp; Cons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carousel-base.css">
+<style>
+  .blank-box{
+    border: 2px dashed rgba(212,175,55,0.34);
+    border-radius: 16px;
+    padding: 120px 50px;
+    text-align: center;
+  }
+  .blank-box .note{ font-size: 40px; color: var(--text-faint); font-style: italic; }
+  .strike{ position: relative; display: inline-block; }
+  .strike::after{
+    content: '';
+    position: absolute;
+    left: -14px; right: -14px; top: 52%;
+    height: 9px;
+    background: var(--gold);
+    transform: rotate(-3deg);
+  }
+  .big-list{ list-style: none; display: flex; flex-direction: column; gap: 50px; }
+  .big-list li{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 74px;
+    line-height: 1;
+    color: var(--text);
+  }
+  .big-list li span{ color: var(--gold-bright); }
+</style>
+</head>
+<body>
+
+<!-- 1 — HOOK -->
+<section class="slide" data-n="1">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner">
+    <div class="spacer"></div>
+    <h1 class="display d-xxl">PROS<br><span class="gold-grad">&amp; CONS</span></h1>
+    <p class="body-lg" style="margin-top:42px; font-size:44px;">of letting somebody else run your socials.</p>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="swipe">Swipe <span class="arrow">&rarr;</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 — THE JOKE -->
+<section class="slide" data-n="2">
+  <div class="glow corner"></div><div class="grain"></div>
+  <div class="inner">
+    <h2 class="display d-xl">THE <span class="strike">CONS</span></h2>
+    <div class="spacer"></div>
+    <div class="blank-box">
+      <p class="note">still looking.</p>
+    </div>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">02 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3 — THE PROS -->
+<section class="slide" data-n="3">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner">
+    <h2 class="display d-xl gold-grad">THE PROS</h2>
+    <div class="spacer"></div>
+    <ul class="big-list">
+      <li>Customers who found you <span>online.</span></li>
+      <li>A slow season that's <span>less slow.</span></li>
+      <li>No hire. <span>No payroll.</span></li>
+      <li>Your nights <span>back.</span></li>
+    </ul>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">03 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4 — OWNER TURN -->
+<section class="slide" data-n="4">
+  <div class="glow bottom"></div><div class="grain"></div>
+  <div class="inner">
+    <div class="spacer"></div>
+    <h2 class="display" style="font-size:112px; line-height:0.98;">You run<br>a business.<br><span class="gold-grad">Not a feed.</span></h2>
+    <p class="body-lg" style="margin-top:44px; font-size:42px; max-width:840px;">Marketing shouldn't be the thing you do after closing.</p>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">04 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 — CTA -->
+<section class="slide" data-n="5">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner center">
+    <div class="spacer"></div>
+    <h2 class="display d-xxl">CHOOSE<br><span class="gold-grad">US.</span></h2>
+    <p class="body-lg" style="margin-top:44px; font-size:38px; max-width:720px;">Flat monthly rate. Cancel whenever.</p>
+    <div style="margin-top:60px;"><span class="pill">Link in bio</span></div>
+    <div class="spacer"></div>
+    <div class="foot" style="justify-content:center;">
+      <p class="mark" style="font-size:34px; color:rgba(242,239,233,0.8);">Covanreach <span>Media</span></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const n = new URLSearchParams(location.search).get('s') || '1';
+  const el = document.querySelector('.slide[data-n="' + n + '"]');
+  if (el) el.classList.add('show');
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+/* ===== Covanreach Media — IG Carousel slide system (1080x1350) ===== */
+
+:root{
+  --bg: #08080a;
+  --card: #131316;
+  --gold: #D4AF37;
+  --gold-bright: #F1D27A;
+  --gold-dim: #8a712a;
+  --text: #F2EFE9;
+  --text-dim: #b9b6ae;
+  --text-faint: #7c7972;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Manrope', -apple-system, sans-serif;
+}
+
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+html, body{ width: 1080px; height: 1350px; overflow: hidden; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.slide{
+  display: none;
+  position: relative;
+  width: 1080px;
+  height: 1350px;
+  padding: 92px 88px;
+  overflow: hidden;
+}
+.slide.show{ display: flex; flex-direction: column; }
+
+/* Ambient gold glow */
+.glow{
+  position: absolute;
+  width: 1100px; height: 1100px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(212,175,55,0.17) 0%, rgba(212,175,55,0) 62%);
+}
+.glow.top{ top: -420px; left: 50%; transform: translateX(-50%); }
+.glow.bottom{ bottom: -520px; left: 50%; transform: translateX(-50%); }
+.glow.corner{ top: -400px; right: -400px; }
+
+/* Film grain */
+.grain{
+  position: absolute; inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.inner{ position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; width: 100%; }
+
+/* ===== Type ===== */
+.gold{ color: var(--gold-bright); }
+.gold-grad{
+  background: linear-gradient(118deg, var(--gold-dim), var(--gold-bright) 46%, var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow{
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.display{
+  font-family: var(--serif);
+  font-weight: 700;
+  line-height: 0.96;
+  letter-spacing: -0.005em;
+}
+.d-xxl{ font-size: 178px; }
+.d-xl{ font-size: 132px; }
+.d-lg{ font-size: 104px; }
+.d-md{ font-size: 78px; }
+
+.body-lg{ font-size: 37px; line-height: 1.46; color: var(--text-dim); }
+.body-md{ font-size: 31px; line-height: 1.5; color: var(--text-dim); }
+
+.rule{
+  width: 92px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), rgba(212,175,55,0));
+}
+
+/* ===== Lists ===== */
+.list{ list-style: none; display: flex; flex-direction: column; gap: 26px; }
+.list li{
+  position: relative;
+  padding-left: 52px;
+  font-size: 34px;
+  line-height: 1.34;
+  color: var(--text);
+}
+.list li::before{
+  content: '';
+  position: absolute;
+  left: 0; top: 20px;
+  width: 26px; height: 2px;
+  background: var(--gold);
+}
+.list.check li::before{
+  content: '\2713';
+  font-family: var(--sans);
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--gold);
+  background: none;
+  width: auto; height: auto;
+  top: 0;
+}
+
+/* ===== Cards ===== */
+.card{
+  background: var(--card);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 14px;
+  padding: 40px 42px;
+}
+.card.hi{ border-color: rgba(212,175,55,0.5); background: linear-gradient(170deg, rgba(212,175,55,0.09), var(--card) 55%); }
+
+/* ===== Footer / watermark ===== */
+.foot{
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
+  padding-top: 56px;
+}
+.mark{
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(242,239,233,0.62);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.mark span{ color: rgba(212,175,55,0.92); }
+
+.counter{
+  font-family: var(--sans);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+}
+
+.swipe{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 21px;
+  font-weight: 800;
+  color: var(--gold);
+}
+.swipe .arrow{ font-size: 27px; }
+
+/* CTA pill */
+.pill{
+  display: inline-block;
+  background: linear-gradient(118deg, var(--gold-dim), var(--gold-bright), var(--gold));
+  color: #0a0a0a;
+  font-weight: 800;
+  font-size: 35px;
+  padding: 27px 62px;
+  border-radius: 100px;
+  letter-spacing: 0.01em;
+}
+.pill-ghost{
+  display: inline-block;
+  border: 2px solid rgba(212,175,55,0.55);
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 29px;
+  padding: 20px 44px;
+  border-radius: 100px;
+}
+
+.center{ align-items: center; text-align: center; justify-content: center; }
+.spacer{ flex: 1; }

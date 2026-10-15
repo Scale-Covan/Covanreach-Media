@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carousel 2 — 3 Seconds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carousel-base.css">
+<style>
+  .huge-num{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 430px;
+    line-height: 0.8;
+    letter-spacing: -0.03em;
+  }
+  .tick-row{ display: flex; gap: 14px; margin-top: 46px; }
+  .tick{ flex: 1; height: 10px; border-radius: 5px; background: rgba(255,255,255,0.09); }
+  .tick.on{ background: var(--gold); }
+  .big-list{ list-style: none; display: flex; flex-direction: column; gap: 50px; }
+  .big-list li{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 76px;
+    line-height: 1;
+    color: var(--text);
+  }
+  .big-list li span{ color: var(--gold-bright); }
+  .split{ display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .split .col{ padding: 40px 34px; border-radius: 14px; }
+  .col.bad{ background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); }
+  .col.good{ background: linear-gradient(170deg, rgba(212,175,55,0.11), var(--card) 60%); border: 1px solid rgba(212,175,55,0.45); }
+  .col h3{ font-family: var(--sans); font-size: 23px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 800; margin-bottom: 28px; }
+  .col.bad h3{ color: var(--text-faint); }
+  .col.good h3{ color: var(--gold); }
+  .col p{ font-size: 34px; line-height: 1.3; color: var(--text-dim); margin-bottom: 20px; }
+  .col p:last-child{ margin-bottom: 0; }
+  .col.good p{ color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 — HOOK -->
+<section class="slide" data-n="1">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner center">
+    <div class="spacer"></div>
+    <p class="huge-num gold-grad">3</p>
+    <h1 class="display d-lg" style="margin-top:10px;">SECONDS.</h1>
+    <p class="body-lg" style="margin-top:38px; font-size:42px; max-width:760px;">That's all your business gets.</p>
+    <div class="tick-row" style="width:600px;">
+      <span class="tick on"></span><span class="tick on"></span><span class="tick on"></span>
+      <span class="tick"></span><span class="tick"></span><span class="tick"></span>
+    </div>
+    <div class="spacer"></div>
+    <div class="foot" style="justify-content:center; gap:60px;">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="swipe">Swipe <span class="arrow">&rarr;</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 — META HOOK -->
+<section class="slide" data-n="2">
+  <div class="glow corner"></div><div class="grain"></div>
+  <div class="inner">
+    <div class="spacer"></div>
+    <h2 class="display d-xl">You almost<br>swiped past<br><span class="gold-grad">this.</span></h2>
+    <p class="body-lg" style="margin-top:46px; font-size:42px; max-width:840px;">Your customers do that to you every day.</p>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">02 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3 — WHY IT DIES -->
+<section class="slide" data-n="3">
+  <div class="glow bottom"></div><div class="grain"></div>
+  <div class="inner">
+    <h2 class="display" style="font-size:96px; line-height:0.98;">Good business.<br><span class="gold-grad">Invisible online.</span></h2>
+    <div class="spacer"></div>
+    <ul class="big-list">
+      <li>Filmed in <span>bad light.</span></li>
+      <li>Opens with a <span>logo.</span></li>
+      <li>Posted <span>whenever.</span></li>
+    </ul>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">03 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4 — BEFORE / AFTER -->
+<section class="slide" data-n="4">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner">
+    <h2 class="display" style="font-size:88px; line-height:0.98;">Same shop.<br><span class="gold-grad">Different 3 seconds.</span></h2>
+    <div class="spacer"></div>
+    <div class="split">
+      <div class="col bad">
+        <h3>Before</h3>
+        <p>Phone footage</p>
+        <p>Posts when you remember</p>
+        <p>Nobody calls</p>
+      </div>
+      <div class="col good">
+        <h3>With Us</h3>
+        <p>Shot on real gear</p>
+        <p>3&ndash;4&times; a week, on time</p>
+        <p>New customers</p>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">04 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 — CTA -->
+<section class="slide" data-n="5">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner center">
+    <div class="spacer"></div>
+    <h2 class="display d-xl">We'll take<br>the <span class="gold-grad">3 seconds.</span></h2>
+    <p class="body-lg" style="margin-top:44px; font-size:38px; max-width:740px;">You get back to running the place.</p>
+    <div style="margin-top:60px;"><span class="pill">Link in bio</span></div>
+    <div class="spacer"></div>
+    <div class="foot" style="justify-content:center;">
+      <p class="mark" style="font-size:34px; color:rgba(242,239,233,0.8);">Covanreach <span>Media</span></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const n = new URLSearchParams(location.search).get('s') || '1';
+  const el = document.querySelector('.slide[data-n="' + n + '"]');
+  if (el) el.classList.add('show');
+</script>
+</body>
+</html>

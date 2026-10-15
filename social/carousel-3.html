@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Carousel 3 — Louder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carousel-base.css">
+<style>
+  .cost-row{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 22px;
+    padding: 30px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .cost-row .task{ font-size: 38px; color: var(--text); }
+  .cost-row .hrs{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 46px;
+    color: var(--gold-bright);
+    white-space: nowrap;
+  }
+  .total-row{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 22px;
+    margin-top: 34px;
+    padding: 34px 36px;
+    border-radius: 14px;
+    background: linear-gradient(170deg, rgba(212,175,55,0.12), var(--card) 62%);
+    border: 1px solid rgba(212,175,55,0.45);
+  }
+  .total-row .label{
+    font-family: var(--sans);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--gold);
+  }
+  .total-row .val{ font-family: var(--serif); font-weight: 700; font-size: 68px; color: var(--gold-bright); }
+  .big-list{ list-style: none; display: flex; flex-direction: column; gap: 46px; }
+  .big-list li{
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--text);
+  }
+  .big-list li span{ color: var(--gold-bright); }
+</style>
+</head>
+<body>
+
+<!-- 1 — HOOK -->
+<section class="slide" data-n="1">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner">
+    <div class="spacer"></div>
+    <h1 class="display d-xl">The shop<br>down the road<br>isn't <span class="gold-grad">better</span><br>than you.</h1>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="swipe">Swipe <span class="arrow">&rarr;</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- 2 — PUNCH -->
+<section class="slide" data-n="2">
+  <div class="glow corner"></div><div class="grain"></div>
+  <div class="inner center">
+    <div class="spacer"></div>
+    <h2 class="display d-xxl gold-grad">THEY'RE<br>JUST<br>LOUDER.</h2>
+    <p class="body-lg" style="margin-top:48px; font-size:42px; max-width:800px;">Same service. Same town. More posts.</p>
+    <div class="spacer"></div>
+    <div class="foot" style="justify-content:center;">
+      <p class="mark">Covanreach <span>Media</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 — THE REAL COST -->
+<section class="slide" data-n="3">
+  <div class="glow bottom"></div><div class="grain"></div>
+  <div class="inner">
+    <h2 class="display" style="font-size:96px; line-height:0.98;">"I'll just post<br><span class="gold-grad">it myself."</span></h2>
+    <div class="spacer"></div>
+    <div class="cost-row"><span class="task">Filming</span><span class="hrs">2 hrs</span></div>
+    <div class="cost-row"><span class="task">Editing</span><span class="hrs">3 hrs</span></div>
+    <div class="cost-row"><span class="task">Captions</span><span class="hrs">1 hr</span></div>
+    <div class="cost-row"><span class="task">Posting &amp; replies</span><span class="hrs">2 hrs</span></div>
+    <div class="total-row">
+      <span class="label">Every week</span>
+      <span class="val">8 hrs</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">03 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4 — HAND IT OFF -->
+<section class="slide" data-n="4">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner">
+    <h2 class="display" style="font-size:104px; line-height:0.98;">Hand us<br><span class="gold-grad">all eight.</span></h2>
+    <div class="spacer"></div>
+    <ul class="big-list">
+      <li>We show up and <span>shoot.</span></li>
+      <li>We cut it into <span>reels.</span></li>
+      <li>We post and <span>reply.</span></li>
+      <li>You run the <span>business.</span></li>
+    </ul>
+    <div class="spacer"></div>
+    <div class="foot">
+      <p class="mark">Covanreach <span>Media</span></p>
+      <span class="counter">04 / 05</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5 — CTA -->
+<section class="slide" data-n="5">
+  <div class="glow top"></div><div class="grain"></div>
+  <div class="inner center">
+    <div class="spacer"></div>
+    <h2 class="display d-xxl">GET<br><span class="gold-grad">LOUDER.</span></h2>
+    <p class="body-lg" style="margin-top:44px; font-size:38px; max-width:740px;">Flat monthly rate. Rates on the site.</p>
+    <div style="margin-top:60px;"><span class="pill">Link in bio</span></div>
+    <div class="spacer"></div>
+    <div class="foot" style="justify-content:center;">
+      <p class="mark" style="font-size:34px; color:rgba(242,239,233,0.8);">Covanreach <span>Media</span></p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const n = new URLSearchParams(location.search).get('s') || '1';
+  const el = document.querySelector('.slide[data-n="' + n + '"]');
+  if (el) el.classList.add('show');
+</script>
+</body>
+</html>

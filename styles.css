@@ -743,8 +743,140 @@ h3{ font-size: 1.4rem; margin-bottom: 8px; }
   margin-top: 8px;
 }
 
+/* ===== Free-month offer banner ===== */
+.offer-strip{
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(212,175,55,0.1);
+  border: 1px solid rgba(212,175,55,0.42);
+  border-radius: 100px;
+  padding: 10px 22px 10px 14px;
+  margin-bottom: 26px;
+}
+.offer-strip .flag{
+  background: var(--gold);
+  color: #0a0a0a;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 11px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.offer-strip .txt{ color: var(--gold-bright); font-size: 0.9rem; font-weight: 600; }
+.offer-strip .fine{ color: var(--text-faint); font-size: 0.78rem; }
+
+.offer-banner{
+  background: linear-gradient(135deg, rgba(212,175,55,0.13), var(--card) 58%);
+  border: 1px solid rgba(212,175,55,0.45);
+  border-radius: var(--radius);
+  padding: 46px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+  flex-wrap: wrap;
+}
+.offer-banner h2{ margin-bottom: 10px; }
+.offer-banner .fine{ color: var(--text-faint); font-size: 0.85rem; margin-top: 12px; }
+
+/* ===== Who We Help ===== */
+.who-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.who-card{
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 32px 30px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.who-card:hover{ transform: translateY(-5px); border-color: rgba(212,175,55,0.45); }
+.who-card .who-icon{
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin-bottom: 18px;
+  color: var(--gold);
+}
+.who-card .who-icon svg{ width: 100%; height: 100%; display: block; }
+.who-card h3{ font-size: 1.25rem; margin-bottom: 10px; }
+.who-card p{ color: var(--text-dim); font-size: 0.9rem; margin-bottom: 16px; }
+.who-tags{ display: flex; flex-wrap: wrap; gap: 8px; }
+.who-tags span{
+  font-size: 0.74rem;
+  color: var(--gold-bright);
+  background: rgba(212,175,55,0.08);
+  border: 1px solid rgba(212,175,55,0.22);
+  border-radius: 100px;
+  padding: 5px 12px;
+}
+
+/* ===== Data / stats ===== */
+.stat-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 26px;
+}
+.data-card{
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+}
+.data-card .big{
+  font-family: var(--serif);
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold-bright);
+  margin-bottom: 14px;
+}
+.data-card .claim{ color: var(--text); font-size: 1rem; font-weight: 600; margin-bottom: 10px; }
+.data-card .src{ color: var(--text-faint); font-size: 0.76rem; }
+.data-card .src a{ color: var(--text-faint); text-decoration: underline; }
+.data-card .src a:hover{ color: var(--gold); }
+
+.takeaway{
+  background: rgba(212,175,55,0.06);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  padding: 22px 26px;
+  margin-top: 26px;
+}
+.takeaway strong{ color: var(--gold-bright); }
+.takeaway p{ color: var(--text-dim); font-size: 0.95rem; }
+
+/* ===== Method / numbered timeline ===== */
+.method-list{ display: flex; flex-direction: column; gap: 18px; }
+.method-item{
+  display: flex;
+  gap: 26px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 30px 34px;
+}
+.method-item .m-num{
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  min-width: 46px;
+}
+.method-item h3{ font-size: 1.2rem; margin-bottom: 8px; }
+.method-item p{ color: var(--text-dim); font-size: 0.93rem; }
+
 /* ===== Responsive ===== */
 @media (max-width: 900px){
+  .who-grid, .stat-grid{ grid-template-columns: 1fr 1fr; }
+  .offer-banner{ flex-direction: column; align-items: flex-start; padding: 34px 28px; }
   .nav-desktop, .nav-cta{ display: none; }
   .nav-toggle{ display: flex; }
   .about-grid, .contact-grid{ grid-template-columns: 1fr; gap: 46px; }
@@ -773,6 +905,9 @@ h3{ font-size: 1.4rem; margin-bottom: 8px; }
   .portfolio-grid{ grid-template-columns: 1fr; }
   .service-list{ grid-template-columns: 1fr; }
   .service-block{ padding: 30px 24px; }
+  .who-grid, .stat-grid{ grid-template-columns: 1fr; }
+  .method-item{ flex-direction: column; gap: 12px; padding: 26px 24px; }
+  .offer-strip{ flex-direction: column; align-items: flex-start; border-radius: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce){
