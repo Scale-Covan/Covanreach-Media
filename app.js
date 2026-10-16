@@ -2,6 +2,16 @@
    Covanreach Media — interactions
    =================================================================== */
 
+/* -------------------------------------------------------------------
+   BOOKING LINK — paste your Calendly URL between the quotes.
+   e.g. 'https://calendly.com/covanreachmedia/strategy-call'
+
+   Set it and the contact section gains a "Pick a time" tab with your
+   live calendar. Leave it empty and the page falls back to the form
+   on its own — nothing breaks either way.
+   ------------------------------------------------------------------- */
+const CALENDLY_URL = '';
+
 const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 document.getElementById('yr').textContent = new Date().getFullYear();
@@ -479,3 +489,50 @@ form.addEventListener('submit', async e => {
     btnText.textContent = 'Request My Call';
   }
 });
+
+/* ---------- Booking: Calendly tab ----------
+   Only wires up when CALENDLY_URL is set at the top of this file.
+   The embed script is fetched lazily so visitors who never open the
+   booking section don't pay for it.                                  */
+(function () {
+  const tabs = document.getElementById('bookTabs');
+  const calPane = document.getElementById('bookCal');
+  const embed = document.getElementById('calEmbed');
+  const form = document.getElementById('form');
+  if (!tabs || !calPane || !embed || !form) return;
+
+  const url = (CALENDLY_URL || '').trim();
+  if (!url) return;            // no link yet — form stands alone
+
+  // Match Calendly's widget to the page instead of its default white.
+  const themed = url +
+    (url.includes('?') ? '&' : '?') +
+    'background_color=0c0c10&text_color=f4f1ea&primary_color=d4af37&hide_gdpr_banner=1';
+  embed.setAttribute('data-url', themed);
+
+  tabs.hidden = false;
+  calPane.hidden = false;
+  form.classList.add('is-hidden');   // "Pick a time" is the default tab
+
+  // Load Calendly's widget script once.
+  const s = document.createElement('script');
+  s.src = 'https://assets.calendly.com/assets/external/widget.js';
+  s.async = true;
+  document.head.appendChild(s);
+
+  tabs.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-book]');
+    if (!btn) return;
+
+    tabs.querySelectorAll('button').forEach(b => {
+      b.classList.remove('on');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('on');
+    btn.setAttribute('aria-selected', 'true');
+
+    const wantCal = btn.dataset.book === 'cal';
+    calPane.hidden = !wantCal;
+    form.classList.toggle('is-hidden', wantCal);
+  });
+})();
