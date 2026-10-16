@@ -204,82 +204,82 @@ const ICON = {
 const INDUSTRIES = [
   {
     name: 'Restaurants &amp; Cafés',
-    copy: 'Food is the easiest thing in the world to film and the most under-shot. We cover the plate, the pour, the kitchen, and the room — then keep your Google listing current so the lunch crowd finds you first.',
-    tags: ['Menu reels', 'Daily specials', 'Google Profile', 'Review replies'],
+    copy: 'Meta ads pointed at the people within driving distance of a table, built from the food photos you already have. Specials and new menu items in front of them the day they run.',
+    tags: ['Meta ads', 'Specials', 'Google Profile', 'Review replies'],
     shots: [
-      [ICON.plate, 'Dish and prep footage shot on location'],
-      [ICON.phone, 'Specials posted the morning they run'],
-      [ICON.star, 'Review responses handled for you']
+      [ICON.plate, 'Ad creative cut from your own food content'],
+      [ICON.phone, 'Campaigns timed to lunch and dinner demand'],
+      [ICON.star, 'Google Profile kept current and accurate']
     ]
   },
   {
     name: 'Auto &amp; Detailing',
-    copy: 'Shops, detailers, dealers, and wrap installers. Before-and-after is some of the highest-performing content on any platform, and almost nobody in this trade is shooting it properly.',
-    tags: ['Before / after', 'Build features', 'Car meets', 'Service ads'],
+    copy: 'Shops, detailers, dealers, and wrap installers. Before-and-after is some of the highest-converting ad creative there is, and almost nobody in this trade is running it as a real campaign.',
+    tags: ['Before / after', 'Meta ads', 'Retargeting', 'Service ads'],
     shots: [
-      [ICON.car, 'Before-and-after cuts that hold attention'],
-      [ICON.camera, 'Full event roll-through at meets and shows'],
-      [ICON.search, 'Google Ads for "near me" service searches']
+      [ICON.car, 'Before-and-after ads built from your photos'],
+      [ICON.chart, 'Retargeting for quotes that went cold'],
+      [ICON.search, 'Campaigns aimed at nearby service demand']
     ]
   },
   {
     name: 'Barbershops &amp; Salons',
-    copy: 'Your chair work is the portfolio. We shoot the transformation, cut it vertical, and keep your booking link in front of the people who live within a few miles of you.',
-    tags: ['Transformations', 'Booking ads', 'Chair features', 'Reviews'],
+    copy: 'Your chair work is the portfolio. We turn it into ad creative and point every click at a booking page that actually loads fast on a phone.',
+    tags: ['Booking ads', 'Landing pages', 'Retargeting', 'Reviews'],
     shots: [
-      [ICON.scissors, 'Transformation reels, start to finish'],
+      [ICON.scissors, 'Transformation creative cut for the feed'],
       [ICON.calendar, 'Ads pointed straight at your booking link'],
       [ICON.user, 'Individual barber and stylist features']
     ]
   },
   {
     name: 'Gyms &amp; Fitness',
-    copy: 'Trainers, studios, and gyms live and die on local reach. We film the floor, the coaches, and the member stories, then run sign-up campaigns against your actual service radius.',
-    tags: ['Class promos', 'Trainer features', 'Sign-up ads', 'Member stories'],
+    copy: 'Trainers, studios, and gyms live on a steady stream of sign-ups. We run the campaigns and rebuild the page they land on, then report cost per sign-up every week.',
+    tags: ['Sign-up ads', 'Landing pages', 'Lead tracking', 'Retargeting'],
     shots: [
-      [ICON.dumbbell, 'Floor and class footage that looks full'],
-      [ICON.user, 'Coach features that build the roster'],
-      [ICON.chart, 'Sign-up campaigns with tracked cost per lead']
+      [ICON.dumbbell, 'Campaigns built around your free trial offer'],
+      [ICON.user, 'Coach and member creative that builds trust'],
+      [ICON.chart, 'Tracked cost per sign-up, reported weekly']
     ]
   },
   {
     name: 'Real Estate &amp; Property',
-    copy: 'Walkthroughs, 360 tours, and orbit shots that make a listing feel like a visit before anybody drives out. Agent branding content so sellers remember who to call.',
-    tags: ['Walkthroughs', '360 tours', 'Agent branding', 'Listing reels'],
+    copy: 'Listing campaigns that put a property in front of buyers in the right radius, and an agent site that makes sellers remember who to call.',
+    tags: ['Listing ads', 'Agent websites', 'Lead forms', 'Retargeting'],
     shots: [
-      [ICON.home, 'Full property walkthroughs on a gimbal'],
-      [ICON.globe, 'Insta360 tours and exterior orbits'],
-      [ICON.user, 'Personal brand content for the agent']
+      [ICON.home, 'Listing campaigns targeted by area and intent'],
+      [ICON.globe, 'Agent site rebuilt around lead capture'],
+      [ICON.user, 'Personal brand creative for the agent']
     ]
   },
   {
     name: 'Contractors &amp; Home Services',
-    copy: 'HVAC, roofing, landscaping, remodels. Job-site footage plus Google Ads is the most direct path from a stranger searching at 9pm to your phone ringing at 9am.',
-    tags: ['Job-site reels', 'Google Ads', 'Service areas', 'Before / after'],
+    copy: 'HVAC, roofing, landscaping, remodels. A sharp ad and a page that loads in two seconds is the most direct path from a stranger scrolling at 9pm to your phone ringing at 9am.',
+    tags: ['Meta ads', 'Landing pages', 'Lead tracking', 'Before / after'],
     shots: [
-      [ICON.tool, 'Job-site and finished-work footage'],
-      [ICON.phone, 'Google Ads built around emergency searches'],
-      [ICON.pin, 'Service-area targeting that matches your trucks']
+      [ICON.tool, 'Finished-work creative built from your photos'],
+      [ICON.phone, 'Campaigns built around urgent, high-intent jobs'],
+      [ICON.pin, 'Targeting that matches where your trucks go']
     ]
   },
   {
     name: 'Musicians &amp; Artists',
-    copy: 'Music videos short and full length, plus the short-form cuts that actually get the track in front of people. Release rollouts planned so the song does not land to silence.',
-    tags: ['Music videos', 'Performance clips', 'Release rollouts', 'Visualizers'],
+    copy: 'Release campaigns so the track does not land to silence. We cut your existing footage into short-form ad creative and run it against the right listener audiences.',
+    tags: ['Release campaigns', 'Ad creative', 'Retargeting', 'Landing pages'],
     shots: [
-      [ICON.note, 'Music videos, single or multi-location'],
-      [ICON.camera, 'Short-form cuts built from the same shoot'],
-      [ICON.calendar, 'Rollout calendar around the release date']
+      [ICON.note, 'Short-form creative cut from your footage'],
+      [ICON.chart, 'Audience testing across listener segments'],
+      [ICON.calendar, 'Campaign calendar around the release date']
     ]
   },
   {
     name: 'Events &amp; Sports',
-    copy: 'Car meets, tournaments, shows, and leagues. Full roll-through coverage with same-week recaps, billed weekly or monthly depending on your season.',
-    tags: ['Event coverage', 'Recap edits', 'Sponsor reels', 'Weekly billing'],
+    copy: 'Car meets, tournaments, shows, and leagues. Ticket and attendance campaigns that ramp as the date gets close, plus a page built to actually sell the spot.',
+    tags: ['Ticket ads', 'Landing pages', 'Sponsor reels', 'Retargeting'],
     shots: [
-      [ICON.camera, 'Full event coverage, start to finish'],
-      [ICON.trophy, 'Recap edits out while people still care'],
-      [ICON.handshake, 'Sponsor-facing cuts for your partners']
+      [ICON.camera, 'Creative built from last season\'s footage'],
+      [ICON.trophy, 'Campaigns that scale toward event day'],
+      [ICON.handshake, 'Sponsor-facing assets for your partners']
     ]
   }
 ];
@@ -369,11 +369,16 @@ scoreQ.innerHTML = QUESTIONS.map((item, i) => `
     <span class="toggle">
       <button class="yes" data-i="${i}" data-v="1" aria-label="Yes">Yes</button>
       <button class="no"  data-i="${i}" data-v="0" aria-label="No">No</button>
+      <button class="idk" data-i="${i}" data-v="-1" aria-label="I don't know">IDK</button>
     </span>
   </div>`).join('');
 
 function updateScore() {
   const answered = answers.filter(a => a !== null).length;
+  // -1 is "IDK": it counts as answered and carries its full weight into
+  // the denominator, but earns nothing — not knowing usually means it
+  // isn't set up. It's also the most useful thing for us to see.
+  const unknown = answers.filter(a => a === -1).length;
   let earned = 0, possible = 0;
 
   answers.forEach((a, i) => {
@@ -389,16 +394,21 @@ function updateScore() {
 
   if (answered === 0) {
     scoreTitle.textContent = 'Answer the questions';
-    scoreMsg.textContent = 'Tap yes or no on each one and your score builds as you go.';
+    scoreMsg.textContent = 'Tap yes, no, or IDK on each one and your score builds as you go.';
     scoreField.value = 'not completed';
     return;
   }
 
-  scoreField.value = `${pct}/100 (${answered}/${QUESTIONS.length} answered)`;
+  scoreField.value =
+    `${pct}/100 (${answered}/${QUESTIONS.length} answered` +
+    (unknown ? `, ${unknown} unsure` : '') + ')';
 
   if (answered < QUESTIONS.length) {
     scoreTitle.textContent = `${answered} of ${QUESTIONS.length} answered`;
     scoreMsg.textContent = 'Keep going — the score updates with every answer.';
+  } else if (unknown >= 4) {
+    scoreTitle.textContent = 'Worth an audit first';
+    scoreMsg.textContent = 'You marked a lot of these unsure, which is normal — most owners have never been shown where any of it lives. We can check all of it for you and tell you exactly what is set up and what is not.';
   } else if (pct >= 80) {
     scoreTitle.textContent = 'You’re in good shape';
     scoreMsg.textContent = 'The fundamentals are covered. The gap now is volume and consistency — more content, more often, pointed at the right radius.';
@@ -452,7 +462,7 @@ form.addEventListener('submit', async e => {
 
     if (res.ok) {
       form.reset();
-      status.textContent = 'Thanks — we’ll be in touch within one business day.';
+      status.textContent = 'Got it — we’ll confirm your call time within one business day.';
       status.classList.add('ok');
     } else {
       const data = await res.json().catch(() => null);
@@ -466,6 +476,6 @@ form.addEventListener('submit', async e => {
     status.classList.add('err');
   } finally {
     submit.disabled = false;
-    btnText.textContent = 'Send Message';
+    btnText.textContent = 'Request My Call';
   }
 });

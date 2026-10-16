@@ -58,6 +58,16 @@ button{ font-family:inherit; cursor:pointer; border:none; background:none; color
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* Golden shooting stars (drawn by stars.js)
+   Same layer as the spotlight: above the page background, below every
+   section (z-index 2), so it never sits on top of text. */
+.stars{
+  position:fixed; inset:0; z-index:0;
+  pointer-events:none;
+  width:100%; height:100%;
+}
+@media (prefers-reduced-motion: reduce){ .stars{ display:none; } }
+
 /* Cursor-following spotlight (desktop only, set by JS) */
 .spotlight{
   position:fixed; z-index:0; pointer-events:none;
@@ -386,6 +396,13 @@ section{ position:relative; z-index:2; padding:120px 0; }
 .toggle button:hover{ border-color:var(--gold); color:var(--text); }
 .toggle button.yes.on{ background:var(--gold); border-color:var(--gold); color:#070709; }
 .toggle button.no.on{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.25); color:var(--text); }
+/* "IDK" — deliberately quieter than yes/no so it reads as the honest
+   third option rather than a dodge. Dashed border sets it apart. */
+.toggle button.idk{ border-style:dashed; }
+.toggle button.idk.on{
+  background:rgba(212,175,55,.12); border-style:solid;
+  border-color:rgba(212,175,55,.5); color:var(--gold-br);
+}
 
 .score-out{
   position:sticky; top:110px;
@@ -452,6 +469,28 @@ section{ position:relative; z-index:2; padding:120px 0; }
   outline:none; border-color:var(--gold); background:rgba(212,175,55,.05);
 }
 .fr select option{ background:var(--panel); color:var(--text); }
+/* small clarifier under a field — keeps the budget question from reading
+   as our price */
+.fr .fh{ font-size:.76rem; color:var(--faint); line-height:1.45; }
+
+/* Pair short fields so the booking form stays visually short. A long
+   form is the fastest way to lose a lead. */
+.fr-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+
+.form-fine{
+  font-size:.78rem; color:var(--faint); text-align:center;
+  margin-top:2px; line-height:1.5;
+}
+
+/* ---------- "What happens next" ---------- */
+.next-steps{ list-style:none; margin:30px 0 34px; display:flex; flex-direction:column; gap:18px; }
+.next-steps li{ display:flex; gap:16px; align-items:flex-start; }
+.next-steps .ns-n{
+  font-family:var(--serif); font-size:1rem; font-weight:700;
+  color:var(--gold); flex-shrink:0; padding-top:2px; min-width:24px;
+}
+.next-steps b{ display:block; font-size:.98rem; color:var(--text); margin-bottom:3px; }
+.next-steps p{ font-size:.88rem; color:var(--dim); line-height:1.5; }
 .form .btn{ width:100%; margin-top:4px; }
 .form .btn:disabled{ opacity:.55; cursor:not-allowed; }
 .status{ font-size:.88rem; text-align:center; min-height:1.3em; }
@@ -476,8 +515,83 @@ footer{
 .rv-d1{ transition-delay:.07s; } .rv-d2{ transition-delay:.14s; }
 .rv-d3{ transition-delay:.21s; } .rv-d4{ transition-delay:.28s; }
 
+/* ---------- Hero 3D scene ---------- */
+/* The canvas sits behind the copy on the right. It's decorative, so it
+   never takes pointer events and the hero reads fine if it never loads. */
+.scene{
+  position:absolute; top:50%; right:-4%;
+  width:min(780px, 56vw); height:min(780px, 78vh);
+  transform:translateY(-50%);
+  z-index:1; pointer-events:none;
+  opacity:0; transition:opacity 1.2s var(--ease);
+}
+.scene.ready{ opacity:1; }
+.scene canvas{ display:block; width:100% !important; height:100% !important; }
+
+/* Keep the headline readable over the object on mid-size screens. */
+@media (max-width:1240px){
+  .scene{ right:-12%; opacity:0; }
+  .scene.ready{ opacity:.55; }
+}
+
+/* ---------- Hero motto ---------- */
+.motto{
+  margin-top:20px;
+  font-family:var(--serif);
+  font-size:clamp(1.5rem,3vw,2.1rem);
+  font-weight:600; letter-spacing:.01em;
+  color:var(--gold-br);
+}
+
+/* ---------- Add-ons ---------- */
+.addons{ margin-top:92px; }
+.addons-head{ margin-bottom:34px; }
+.addons-head h3{ font-size:clamp(1.6rem,3vw,2.1rem); margin:14px 0 10px; }
+.addon-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  perspective:1000px;
+}
+.addon{
+  position:relative;
+  padding:28px 26px 26px;
+  background:var(--panel); border:1px solid var(--line-soft); border-radius:var(--r);
+  transform-style:preserve-3d;
+  transition:transform .4s var(--ease), border-color .4s var(--ease),
+             background .4s var(--ease), box-shadow .4s var(--ease);
+}
+.addon:hover{
+  border-color:var(--line);
+  background:var(--panel-2);
+  transform:translateY(-6px) rotateX(5deg) rotateY(-3deg);
+  box-shadow:0 26px 50px -28px rgba(0,0,0,.9), 0 0 0 1px var(--line);
+}
+.addon .an{
+  display:block; font-family:var(--serif); font-size:1.05rem; font-weight:700;
+  color:var(--gold); margin-bottom:12px; letter-spacing:.04em;
+}
+.addon h4{
+  font-family:var(--serif); font-size:1.28rem; font-weight:600;
+  margin-bottom:8px; color:var(--text);
+}
+.addon p{ font-size:.92rem; color:var(--dim); line-height:1.55; }
+
+/* ---------- Process on-site note ---------- */
+.rail-note{
+  margin-top:42px; text-align:center;
+  font-size:.95rem; color:var(--dim);
+  padding:14px 22px;
+  border:1px dashed var(--line); border-radius:var(--r);
+  display:block; width:fit-content; margin-inline:auto;
+}
+
+/* ---------- Give the service cards real depth ---------- */
+.svc-tabs{ perspective:1200px; }
+.svc-tab{ transform-style:preserve-3d; }
+.svc-tab:hover{ transform:translateY(-3px) rotateX(3deg); }
+
 /* ---------- Responsive ---------- */
 @media (max-width:1000px){
+  .addon-grid{ grid-template-columns:1fr 1fr; }
   .wrap{ padding:0 28px; }
   .nav-links{ display:none; }
   .burger{ display:flex; }
@@ -511,8 +625,19 @@ footer{
   .data-grid{ grid-template-columns:1fr; }
   .rail{ grid-template-columns:1fr; }
   .form{ padding:28px 22px; }
+  /* paired fields are too cramped to tap accurately at this width */
+  .fr-row{ grid-template-columns:1fr; gap:18px; }
   .q{ flex-direction:column; align-items:flex-start; gap:14px; }
   .spotlight{ display:none; }
+  .addon-grid{ grid-template-columns:1fr; }
+  .addons{ margin-top:64px; }
+  /* Keep the cube on phones — that's where most visitors land — but pull it
+     up behind the copy and dial it back so it never fights the headline. */
+  .scene{
+    top:8%; right:-34%; transform:none;
+    width:86vw; height:46vh;
+  }
+  .scene.ready{ opacity:.2; }
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -520,5 +645,7 @@ footer{
   .js .reveal-word i, .reveal-word i{ opacity:1; transform:none; transition:none; }
   .marq-track{ animation:none !important; }
   .spotlight{ display:none; }
+  /* scene.js renders a single static frame and never starts its loop */
+  .addon:hover, .svc-tab:hover{ transform:none; }
   *{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
 }

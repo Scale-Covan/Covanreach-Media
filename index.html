@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Covanreach Media | Social Media &amp; Content for Local Business</title>
-<meta name="description" content="Covanreach Media shoots, edits, and runs social media and paid ads for local businesses in Clarksville, Nashville, and Middle Tennessee. First month of ad management free.">
+<title>Covanreach Media | Meta Ads &amp; Website Redesigns That Scale Revenue</title>
+<meta name="description" content="Performance marketing agency running full-service Meta ads and high-converting website redesigns. We turn ad spend into revenue. First month of ad management free.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22 fill=%22%23D4AF37%22>C</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +18,8 @@
 
 <div class="progress" id="progress"></div>
 <div class="spotlight" id="spotlight"></div>
+<!-- Decorative gold streaks. Fixed, behind all content, never clickable. -->
+<canvas class="stars" id="stars" aria-hidden="true"></canvas>
 <div class="grain"></div>
 
 <!-- ============ NAV ============ -->
@@ -31,7 +33,7 @@
       <a href="#data">Data</a>
       <a href="#scorecard">Scorecard</a>
     </div>
-    <a href="#contact" class="btn btn-gold btn-sm" id="navCta">Free Month</a>
+    <a href="#contact" class="btn btn-gold btn-sm" id="navCta">Book a Call</a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -42,7 +44,7 @@
     <a href="#industries">Who We Help</a>
     <a href="#data">Data</a>
     <a href="#scorecard">Scorecard</a>
-    <a href="#contact" class="btn btn-gold btn-sm">Claim Free Month</a>
+    <a href="#contact" class="btn btn-gold btn-sm">Book a Free Call</a>
   </div>
 </nav>
 
@@ -51,6 +53,7 @@
   <!-- ============ HERO ============ -->
   <section class="hero" id="hero">
     <div class="hero-glow"></div>
+    <div class="scene" id="scene" aria-hidden="true"></div>
     <div class="wrap hero-in">
       <div class="offer-pill rv">
         <span class="tag">New Clients</span>
@@ -59,24 +62,24 @@
       </div>
 
       <h1 id="heroLine">
-        <span class="reveal-word"><i>We</i></span>
-        <span class="reveal-word"><i>shoot</i></span>
-        <span class="reveal-word"><i>it,</i></span>
-        <span class="reveal-word"><i>cut</i></span>
-        <span class="reveal-word"><i>it,</i></span>
-        <span class="reveal-word"><i>and</i></span>
-        <span class="reveal-word"><i class="gold">post&nbsp;it.</i></span>
+        <span class="reveal-word"><i>Turn</i></span>
+        <span class="reveal-word"><i>ad</i></span>
+        <span class="reveal-word"><i>spend</i></span>
+        <span class="reveal-word"><i>into</i></span>
+        <span class="reveal-word"><i class="gold">revenue.</i></span>
       </h1>
 
-      <p class="hero-sub rv rv-d2">Social media, content production, and paid ads for local businesses across Middle Tennessee. You run the place. We handle the part that happens on a screen.</p>
+      <p class="motto rv rv-d1">We scale anything.</p>
+
+      <p class="hero-sub rv rv-d2">A performance marketing agency built on two things that move the number: full-service Meta ads and websites that actually convert. You bring the offer. We build the machine that sells it.</p>
 
       <div class="hero-cta rv rv-d3">
-        <a href="#contact" class="btn btn-gold magnet">Claim Your Free Month</a>
-        <a href="#scorecard" class="btn btn-ghost magnet">Score My Visibility</a>
+        <a href="#contact" class="btn btn-gold magnet">Book a Free Strategy Call</a>
+        <a href="#services" class="btn btn-ghost magnet">See What We Do</a>
       </div>
 
       <div class="hero-meta rv rv-d4">
-        <div class="m"><div class="n">3</div><div class="l">Services, One Team</div></div>
+        <div class="m"><div class="n">2</div><div class="l">Core Services, One Team</div></div>
         <div class="m"><div class="n">30</div><div class="l">Days Free Ad Management</div></div>
         <div class="m"><div class="n">1</div><div class="l">Point of Contact</div></div>
       </div>
@@ -87,20 +90,20 @@
   <div class="marq" aria-hidden="true">
     <div class="marq-track" id="marq">
       <div class="marq-g">
-        <span>Social Media Management</span><i>&#9670;</i>
-        <span>Content Creation</span><i>&#9670;</i>
-        <span>Paid Ads</span><i>&#9670;</i>
-        <span>Growth Strategy</span><i>&#9670;</i>
-        <span>Reels &amp; Video</span><i>&#9670;</i>
-        <span>Photography</span><i>&#9670;</i>
+        <span>Meta Ads</span><i>&#9670;</i>
+        <span>Website Redesigns</span><i>&#9670;</i>
+        <span>Landing Pages</span><i>&#9670;</i>
+        <span>Conversion Tracking</span><i>&#9670;</i>
+        <span>Retargeting</span><i>&#9670;</i>
+        <span>Ad Creative</span><i>&#9670;</i>
       </div>
       <div class="marq-g">
-        <span>Social Media Management</span><i>&#9670;</i>
-        <span>Content Creation</span><i>&#9670;</i>
-        <span>Paid Ads</span><i>&#9670;</i>
-        <span>Growth Strategy</span><i>&#9670;</i>
-        <span>Reels &amp; Video</span><i>&#9670;</i>
-        <span>Photography</span><i>&#9670;</i>
+        <span>Meta Ads</span><i>&#9670;</i>
+        <span>Website Redesigns</span><i>&#9670;</i>
+        <span>Landing Pages</span><i>&#9670;</i>
+        <span>Conversion Tracking</span><i>&#9670;</i>
+        <span>Retargeting</span><i>&#9670;</i>
+        <span>Ad Creative</span><i>&#9670;</i>
       </div>
     </div>
   </div>
@@ -110,74 +113,70 @@
     <div class="wrap">
       <div class="sec-head rv">
         <p class="kicker">01 &mdash; Services</p>
-        <h2>Three ways <span class="gold">in.</span></h2>
-        <p class="lead">Book a shoot, send us footage to cut, or hand over the whole account. Most people start with one and add the rest.</p>
+        <h2>Two services that move the <span class="gold">number.</span></h2>
+        <p class="lead">Ads bring the traffic. The website turns it into money. Most clients run both, because one without the other leaks revenue.</p>
       </div>
 
       <div class="svc">
         <div class="svc-tabs rv" role="tablist">
           <button class="svc-tab on" data-svc="0" role="tab" aria-selected="true">
             <span class="idx">01 &mdash; Monthly</span>
-            <h3>Social Management</h3>
-            <p>We run the account. You stop posting.</p>
+            <h3>Full-Service Meta Ads</h3>
+            <p>Facebook and Instagram campaigns built to bring in leads.</p>
           </button>
           <button class="svc-tab" data-svc="1" role="tab" aria-selected="false">
             <span class="idx">02 &mdash; Per Project</span>
-            <h3>Photo &amp; Videography</h3>
-            <p>We show up with the camera and shoot it.</p>
-          </button>
-          <button class="svc-tab" data-svc="2" role="tab" aria-selected="false">
-            <span class="idx">03 &mdash; Per Video</span>
-            <h3>Video Editing</h3>
-            <p>Send footage. Get back a reel.</p>
+            <h3>Website Redesigns</h3>
+            <p>Fast, modern rebuilds that turn visitors into leads.</p>
           </button>
         </div>
 
         <div class="svc-panel rv rv-d1">
           <div class="svc-pane on" data-pane="0">
-            <h3>Social Management</h3>
-            <p class="tagline">Your account, run end to end &mdash; posted, written, and reviewed every month.</p>
+            <h3>Full-Service Meta Ads</h3>
+            <p class="tagline">We build it, launch it, watch it daily, and report what it made you &mdash; not what it got liked.</p>
             <ul class="svc-list">
-              <li>Content calendar mapped a month ahead</li>
-              <li>Posting 3&ndash;4&times; per week, automated</li>
-              <li>Captions, hooks, and hashtags written</li>
-              <li>Trend and audio tracking for your market</li>
-              <li>Community replies and DMs handled</li>
-              <li>Google Business Profile kept current</li>
-              <li>Monthly performance review</li>
-              <li>Strategy adjusted on what's working</li>
+              <li>Campaign strategy and full account setup</li>
+              <li>Audience targeting built around your buyer</li>
+              <li>Daily optimization on budget and delivery</li>
+              <li>A/B testing on creative, copy, and audiences</li>
+              <li>Retargeting the people who nearly bought</li>
+              <li>Weekly performance reports</li>
+              <li>Reporting focused on leads, cost per lead, and ROI</li>
+              <li>You keep the ad account and the data</li>
             </ul>
           </div>
 
           <div class="svc-pane" data-pane="1">
-            <h3>Photo &amp; Videography</h3>
-            <p class="tagline">On location across Middle Tennessee with a full kit and a contracted field videographer.</p>
+            <h3>Website Redesigns</h3>
+            <p class="tagline">Outdated sites quietly kill good campaigns. We rebuild yours around one job: turning a visitor into a lead.</p>
             <ul class="svc-list">
-              <li>Business and brand shoots</li>
-              <li>Property and walkthrough coverage</li>
-              <li>Music videos, short and full length</li>
-              <li>Vlog and day-in-the-life coverage</li>
-              <li>Car meets, shows, and events</li>
-              <li>360 walkthroughs and orbit shots</li>
-              <li>Canon EOS RP &amp; Rebel T1i bodies</li>
-              <li>DJI RS 3 Mini gimbal, R&oslash;de audio, Insta360</li>
+              <li>Modern rebuild of an outdated site</li>
+              <li>Built mobile-first, because that's where traffic lands</li>
+              <li>Fast load times that don't burn ad clicks</li>
+              <li>Clear calls to action on every screen</li>
+              <li>Lead forms wired up and tested</li>
+              <li>Structured so visitors convert, not just browse</li>
+              <li>Designed to hold up next to anyone in your market</li>
+              <li>Handed over clean, yours to keep</li>
             </ul>
           </div>
+        </div>
+      </div>
 
-          <div class="svc-pane" data-pane="2">
-            <h3>Video Editing</h3>
-            <p class="tagline">Send us footage, get back something postable. Half price when we shot it ourselves.</p>
-            <ul class="svc-list">
-              <li>Reels and short-form vertical</li>
-              <li>YouTube long-form edits</li>
-              <li>Music video cuts</li>
-              <li>Captions, hooks, and sound design</li>
-              <li>Color and audio cleanup</li>
-              <li>Two revisions included</li>
-              <li>Vertical and horizontal deliverables</li>
-              <li>Turnaround quoted before we start</li>
-            </ul>
-          </div>
+      <div class="addons">
+        <div class="addons-head rv">
+          <p class="kicker">Add-ons</p>
+          <h3>Bolt on what you need.</h3>
+          <p class="lead">Available alongside either service. Mix as you go.</p>
+        </div>
+        <div class="addon-grid">
+          <div class="addon rv"><span class="an">01</span><h4>Landing Pages</h4><p>Standalone pages built for a specific ad campaign.</p></div>
+          <div class="addon rv rv-d1"><span class="an">02</span><h4>Pixel &amp; Tracking Setup</h4><p>Meta Pixel and conversion tracking installed properly.</p></div>
+          <div class="addon rv rv-d2"><span class="an">03</span><h4>Ad Creative Editing</h4><p>We cut your existing photos and video into ad-ready creative.</p></div>
+          <div class="addon rv"><span class="an">04</span><h4>Social Media Management</h4><p>Your accounts posted and managed on an ongoing basis.</p></div>
+          <div class="addon rv rv-d1"><span class="an">05</span><h4>Google Business Profile</h4><p>Cleanup and optimization so you show up correctly.</p></div>
+          <div class="addon rv rv-d2"><span class="an">06</span><h4>Monthly Website Care</h4><p>Ongoing updates, fixes, and changes after launch.</p></div>
         </div>
       </div>
     </div>
@@ -189,28 +188,30 @@
       <div class="sec-head center rv">
         <p class="kicker center">02 &mdash; Process</p>
         <h2>Four steps. You're only in <span class="gold">one of them.</span></h2>
-        <p class="lead">The monthly cycle, start to finish. It gets sharper every round.</p>
+        <p class="lead">From first call to scaling what works. The loop tightens every week.</p>
       </div>
 
       <div class="rail" id="rail">
         <div class="rail-fill" id="railFill"></div>
         <div class="step rv"><div class="dot">01</div>
-          <h3>Content Intake</h3>
-          <p>You send us footage, or we come shoot it. Either way we start with real material, not stock.</p>
+          <h3>Strategy Call</h3>
+          <p>We learn your business, your offer, and your goals, then build a plan around them.</p>
         </div>
         <div class="step rv rv-d1"><div class="dot">02</div>
-          <h3>Calendar Mapped</h3>
-          <p>Every post gets a date and a purpose before anything goes live. You see the month ahead of time.</p>
+          <h3>You Send the Content</h3>
+          <p>You share the photos and videos you already have. We edit them into scroll-stopping ads and posts.</p>
         </div>
         <div class="step rv rv-d2"><div class="dot">03</div>
-          <h3>Scheduled &amp; Posted</h3>
-          <p>Posts go out 3&ndash;4 times a week on their own. Nobody has to remember.</p>
+          <h3>We Launch &amp; Manage</h3>
+          <p>We run your Meta ads and handle targeting, budgets, and testing.</p>
         </div>
         <div class="step rv rv-d3"><div class="dot">04</div>
-          <h3>Reviewed &amp; Adjusted</h3>
-          <p>We read what performed and rebuild next month's plan around it.</p>
+          <h3>Report &amp; Scale</h3>
+          <p>Weekly results reports. We cut what doesn't work and scale what does.</p>
         </div>
       </div>
+
+      <p class="rail-note rv">In Tennessee? We can also shoot content for you on-site.</p>
     </div>
   </section>
 
@@ -219,8 +220,8 @@
     <div class="wrap">
       <div class="sec-head rv">
         <p class="kicker">03 &mdash; Who We Help</p>
-        <h2>Businesses people find on a <span class="gold">phone.</span></h2>
-        <p class="lead">If your customers are local and your competition is three miles away, this is built for you. Pick your lane.</p>
+        <h2>Built for businesses that need the <span class="gold">phone to ring.</span></h2>
+        <p class="lead">If you sell something people decide on fast, ads and a sharp site do the heavy lifting. Pick your lane.</p>
       </div>
 
       <div class="ind-chips rv" id="chips" role="tablist">
@@ -333,8 +334,8 @@
           <p class="fine">Ad spend is not included &mdash; that goes straight to Google or Meta, and you set the budget. No contract required to start.</p>
         </div>
         <div class="band-side">
-          <p class="loc">Clarksville &middot; Nashville &middot; Middle TN</p>
-          <a href="#contact" class="btn btn-gold magnet">Claim the Free Month</a>
+          <p class="loc">Remote nationwide &middot; On-site in Tennessee</p>
+          <a href="#contact" class="btn btn-gold magnet">Book a Free Strategy Call</a>
         </div>
       </div>
     </div>
@@ -344,34 +345,83 @@
   <section id="contact">
     <div class="wrap contact-grid">
       <div class="rv">
-        <p class="kicker">06 &mdash; Contact</p>
-        <h2 style="margin:16px 0 14px;">Let's get you <span class="gold">found.</span></h2>
-        <p class="lead">Tell us what you run and what you're trying to get out there. We'll come back within one business day with where we'd start.</p>
+        <p class="kicker">06 &mdash; Book a Call</p>
+        <h2 style="margin:16px 0 14px;">Book your free <span class="gold">strategy call.</span></h2>
+        <p class="lead">Thirty minutes, no pitch deck. We look at what you're running now, tell you where the money is leaking, and show you what we'd do first.</p>
+
+        <ol class="next-steps">
+          <li><span class="ns-n">01</span><div><b>Send this form</b><p>Takes about a minute. Tell us when you're free.</p></div></li>
+          <li><span class="ns-n">02</span><div><b>We confirm your slot</b><p>You get a time and a calendar invite within one business day.</p></div></li>
+          <li><span class="ns-n">03</span><div><b>We show up with a plan</b><p>We've already looked at your ads and site before the call starts.</p></div></li>
+        </ol>
+
         <div class="c-detail">
           <span class="c-ico">&#9993;</span>
           <div>
-            <b>Email us directly</b>
+            <b>Prefer email?</b>
             <p>scale@covanreachmedia.com</p>
           </div>
         </div>
         <div class="c-detail">
           <span class="c-ico">&#9678;</span>
           <div>
-            <b>Service area</b>
-            <p>Clarksville, Nashville &amp; Middle Tennessee</p>
+            <b>Where we work</b>
+            <p>Remote nationwide. On-site content in Tennessee.</p>
           </div>
         </div>
       </div>
 
+      <!-- ─────────────────────────────────────────────────────────────
+           TO ADD SELF-SERVE SCHEDULING (Calendly, Cal.com, etc.):
+           Create the account, grab your booking link, then drop the
+           embed in place of the <form> below — or keep both and let
+           people choose. The form already collects the same details,
+           so nothing breaks if you never add one.
+           ───────────────────────────────────────────────────────────── -->
+
       <form class="form rv rv-d1" id="form" action="https://formspree.io/f/meeydnzj" method="POST">
-        <div class="fr">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your full name" required>
+        <div class="fr-row">
+          <div class="fr">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name">
+          </div>
+          <div class="fr">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@business.com" required autocomplete="email">
+          </div>
         </div>
-        <div class="fr">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@business.com" required>
+
+        <div class="fr-row">
+          <div class="fr">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" autocomplete="tel">
+          </div>
+          <div class="fr">
+            <label for="tz">Time zone</label>
+            <select id="tz" name="timezone">
+              <option value="">Select one&hellip;</option>
+              <option>Eastern (ET)</option>
+              <option>Central (CT)</option>
+              <option>Mountain (MT)</option>
+              <option>Pacific (PT)</option>
+              <option>Alaska / Hawaii</option>
+              <option>Outside the US</option>
+            </select>
+          </div>
         </div>
+
+        <div class="fr">
+          <label for="when">Best time for a call</label>
+          <select id="when" name="best_time">
+            <option value="">Select one&hellip;</option>
+            <option>Weekday mornings</option>
+            <option>Weekday afternoons</option>
+            <option>Weekday evenings</option>
+            <option>Weekends</option>
+            <option>Any time works</option>
+          </select>
+        </div>
+
         <div class="fr">
           <label for="biz">Business type</label>
           <select id="biz" name="business_type">
@@ -389,14 +439,32 @@
           </select>
         </div>
         <div class="fr">
+          <label for="loc">Location</label>
+          <input type="text" id="loc" name="location" placeholder="City, State" autocomplete="address-level2">
+        </div>
+        <div class="fr">
+          <label for="budget">Monthly ad budget</label>
+          <select id="budget" name="ad_budget">
+            <option value="">Select one&hellip;</option>
+            <option>Not sure yet</option>
+            <option>Under $500 / month</option>
+            <option>$500 &ndash; $1,000 / month</option>
+            <option>$1,000 &ndash; $2,500 / month</option>
+            <option>$2,500 &ndash; $5,000 / month</option>
+            <option>$5,000+ / month</option>
+          </select>
+          <span class="fh">This is what you'd spend with Meta or Google, not what you'd pay us.</span>
+        </div>
+        <div class="fr">
           <label for="msg">Message</label>
           <textarea id="msg" name="message" rows="5" placeholder="What are you trying to get out there?" required></textarea>
         </div>
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-        <input type="hidden" name="_subject" value="New inquiry from Covanreach Media website">
+        <input type="hidden" name="_subject" value="New strategy call request — Covanreach Media">
         <input type="hidden" name="visibility_score" id="scoreField" value="not completed">
 
-        <button type="submit" class="btn btn-gold" id="submit"><span id="btnText">Send Message</span></button>
+        <button type="submit" class="btn btn-gold" id="submit"><span id="btnText">Request My Call</span></button>
+        <p class="form-fine">No cost, no commitment. We'll confirm your time within one business day.</p>
         <p class="status" id="status" role="status" aria-live="polite"></p>
       </form>
     </div>
@@ -417,6 +485,11 @@
   </div>
 </footer>
 
+<!-- three.js powers the decorative hero object only; the page is fully
+     usable if it fails to load. defer keeps it off the critical path. -->
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script defer src="scene.js"></script>
+<script defer src="stars.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
