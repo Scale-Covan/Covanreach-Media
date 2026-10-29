@@ -198,7 +198,14 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     console.error('Lead notification failed:', err);
-    return res.status(502).json({ ok: false, error: 'Could not send right now. Please email us directly.' });
+    // ?debug=1 surfaces the provider's reason during setup. It never
+    // includes the API key — only Resend's own error text.
+    const detail = req.query && req.query.debug === '1' ? String(err.message || err) : undefined;
+    return res.status(502).json({
+      ok: false,
+      error: 'Could not send right now. Please email us directly.',
+      ...(detail ? { detail } : {})
+    });
   }
 
   // The client confirmation is nice-to-have. If it fails, the lead is
