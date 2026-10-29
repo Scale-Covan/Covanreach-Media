@@ -198,8 +198,9 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     console.error('Lead notification failed:', err);
-    // ?debug=1 surfaces the provider's reason during setup. It never
-    // includes the API key — only Resend's own error text.
+    // ?debug=1 surfaces the provider's reason — useful when a key is
+    // rotated or a domain falls out of verification. Never includes the
+    // API key, only Resend's own error text.
     const detail = req.query && req.query.debug === '1' ? String(err.message || err) : undefined;
     return res.status(502).json({
       ok: false,
