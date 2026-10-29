@@ -464,21 +464,29 @@ form.addEventListener('submit', async e => {
   btnText.textContent = 'Sending…';
 
   try {
+    // Sent as JSON, not FormData: the serverless function reads a parsed
+    // JSON body, and multipart wouldn't be parsed for it.
+    const payload = Object.fromEntries(new FormData(form).entries());
+
     const res = await fetch(form.action, {
       method: 'POST',
-      body: new FormData(form),
-      headers: { Accept: 'application/json' }
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(payload)
     });
 
-    if (res.ok) {
+    const data = await res.json().catch(() => null);
+
+    if (res.ok && data?.ok !== false) {
       form.reset();
-      status.textContent = 'Got it — we’ll confirm your call time within one business day.';
+      status.textContent = data?.autoReply === false
+        ? 'Got it — we’ll confirm your call time within one business day.'
+        : 'Got it — check your email for a confirmation. We’ll be in touch shortly.';
       status.classList.add('ok');
     } else {
-      const data = await res.json().catch(() => null);
-      status.textContent = data?.errors?.length
-        ? data.errors.map(x => x.message).join(', ')
-        : 'Something went wrong. Please try again or email us directly.';
+      status.textContent =
+        data?.error ||
+        (data?.errors?.length ? data.errors.map(x => x.message).join(', ') : null) ||
+        'Something went wrong. Please try again or email us directly.';
       status.classList.add('err');
     }
   } catch {

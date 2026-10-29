@@ -1,0 +1,10 @@
+{
+  "name": "covanreach-media",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Covanreach Media — performance marketing site",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.70.0"
+  }
+}

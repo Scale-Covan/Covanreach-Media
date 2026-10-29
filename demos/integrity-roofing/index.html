@@ -1,0 +1,1427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Integrity Roofing & Exteriors | Southern Illinois & Western Kentucky Roofing</title>
+<meta name="description" content="GAF Master Elite roofing contractor serving Southern Illinois and Western Kentucky since 2008. Get an instant roof quote in 30 seconds.">
+<link rel="icon" href="https://www.ourintegritymatters.com/storage/2024/08/IRE_favicon-01-01-3.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+:root{
+  --red:#D31225; --red-dark:#A70D1C; --red-glow:rgba(211,18,37,.35);
+  --ink:#111111; --char:#1C1C1E; --gray:#404040; --mute:#6B6B6B;
+  --line:#E5E5E5; --soft:#F4F4F5; --white:#fff;
+  --display:"Bebas Neue",Impact,"Arial Narrow",sans-serif;
+  --body:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --radius:14px; --shadow:0 20px 50px -20px rgba(0,0,0,.35);
+  --wrap:1200px;
+  --asset:"https://www.ourintegritymatters.com/storage";
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--gray);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+h1,h2,h3,.display{font-family:var(--display);font-weight:400;letter-spacing:.02em;line-height:.95;color:var(--ink);text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--red)}
+.eyebrow::before{content:"";width:28px;height:3px;background:var(--red);border-radius:2px}
+.red{color:var(--red)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 26px;border-radius:10px;font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase;transition:transform .15s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 25px -8px var(--red-glow)}
+.btn-red:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 16px 30px -10px var(--red-glow)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-ghost{border:2px solid rgba(255,255,255,.6);color:#fff}
+.btn-ghost:hover{background:#fff;color:var(--ink)}
+.btn-outline{border:2px solid var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:#fff}
+
+/* ---------- top bar + header ---------- */
+.topbar{background:var(--ink);color:#d4d4d4;font-size:13px}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:40px;gap:16px}
+.topbar a:hover{color:#fff}
+.topbar .left{display:flex;gap:22px;align-items:center}
+.topbar .left span{display:inline-flex;gap:6px;align-items:center}
+.topbar svg{width:14px;height:14px;color:var(--red)}
+.topbar .social{display:flex;gap:14px}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);transition:box-shadow .2s}
+header.nav.scrolled{box-shadow:0 8px 30px -12px rgba(0,0,0,.25)}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;gap:20px}
+.logo{flex:none}
+.logo img{height:52px;width:auto}
+.menu{display:flex;gap:26px;white-space:nowrap;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
+.menu a{position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--red);transition:width .2s}
+.menu a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:18px}
+.nav-phone{display:flex;flex-direction:column;align-items:flex-end;line-height:1.15;white-space:nowrap}
+@media (max-width:1320px){.nav-phone{display:none!important}}
+.nav-phone small{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.nav-phone b{font-family:var(--display);font-size:26px;color:var(--ink);letter-spacing:.03em;font-weight:400}
+.burger{display:none;width:44px;height:44px;border-radius:10px;align-items:center;justify-content:center;border:1px solid var(--line)}
+.burger svg{width:22px;height:22px}
+.mobile-menu{display:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:calc(100vh - 122px);min-height:calc(100svh - 122px);display:flex;align-items:center;color:#fff;overflow:hidden;background:#000}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(0,0,0,.88) 0%,rgba(0,0,0,.65) 45%,rgba(0,0,0,.25) 100%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center;padding-top:70px;padding-bottom:90px;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:8px 14px 8px 8px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.hero-tag img{width:26px;height:26px}
+.hero h1{color:#fff;font-size:clamp(56px,6.6vw,100px);margin:22px 0 22px}
+.hero h1 .red{display:block}
+.hero p.lead{font-size:19px;max-width:560px;color:#e5e5e5}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.hero-proof{display:flex;gap:28px;margin-top:44px;flex-wrap:wrap}
+.hero-proof div{display:flex;flex-direction:column}
+.hero-proof b{font-family:var(--display);font-size:40px;font-weight:400;line-height:1;color:#fff}
+.hero-proof span{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#bdbdbd;font-weight:700}
+
+/* quote card (plain-sight estimator entry) */
+.quote-card{background:#fff;color:var(--gray);border-radius:20px;padding:30px;box-shadow:0 40px 80px -30px rgba(0,0,0,.7);position:relative;overflow:hidden}
+.quote-card::before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,var(--red),#ff4d5e,var(--red))}
+.qc-badge{display:inline-flex;gap:8px;align-items:center;background:#FDECEE;color:var(--red);font-weight:800;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.qc-badge i{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 var(--red-glow);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(211,18,37,.5)}100%{box-shadow:0 0 0 12px rgba(211,18,37,0)}}
+.quote-card h2{font-size:44px;margin:14px 0 6px}
+.quote-card p{font-size:15px;color:var(--mute)}
+.addr{position:relative;margin-top:20px}
+.addr-field{display:flex;align-items:center;gap:10px;border:2px solid var(--line);border-radius:12px;padding:0 14px;background:#fff;transition:border .2s,box-shadow .2s}
+.addr-field:focus-within{border-color:var(--red);box-shadow:0 0 0 4px rgba(211,18,37,.12)}
+.addr-field svg{width:20px;height:20px;color:var(--red);flex:none}
+.addr-field input{flex:1;border:0;outline:0;font:inherit;font-size:16px;padding:16px 0;min-width:0;color:var(--ink);background:transparent}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);z-index:20;overflow:hidden;display:none;text-align:left}
+.suggest.open{display:block}
+.suggest button{display:flex;gap:10px;width:100%;padding:12px 14px;text-align:left;font-size:14px;color:var(--ink);align-items:flex-start}
+.suggest button small{display:block;color:var(--mute);font-size:12px}
+.suggest button:hover,.suggest button.active{background:var(--soft)}
+.suggest svg{width:16px;height:16px;color:var(--mute);margin-top:3px;flex:none}
+.quote-card .btn{width:100%;margin-top:12px;padding:18px}
+.qc-trust{display:flex;justify-content:space-between;gap:10px;margin-top:18px;padding-top:18px;border-top:1px dashed var(--line);font-size:12px;font-weight:700;color:var(--ink)}
+.qc-trust span{display:flex;align-items:center;gap:6px}
+.qc-trust svg{width:16px;height:16px;color:var(--red);flex:none}
+
+/* ---------- trust strip ---------- */
+.trust{background:var(--ink);color:#fff;padding:26px 0;border-top:4px solid var(--red)}
+.trust .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.trust-awards{display:flex;align-items:center;gap:18px}
+.trust-awards img{height:74px;width:auto}
+.trust-awards p{font-family:var(--display);font-size:28px;line-height:1;max-width:330px}
+.trust-items{display:flex;gap:36px;flex-wrap:wrap}
+.trust-items div{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;line-height:1.3}
+.trust-items svg{width:34px;height:34px;color:var(--red);flex:none}
+.trust-items small{display:block;font-weight:500;color:#a3a3a3;font-size:12px}
+
+section{padding:110px 0}
+[id]{scroll-margin-top:90px}
+.sec-head{max-width:760px;margin-bottom:56px}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .eyebrow::after{content:"";width:28px;height:3px;background:var(--red);border-radius:2px}
+.sec-head h2{font-size:clamp(44px,5.5vw,72px);margin:14px 0 18px}
+.sec-head p{font-size:17px}
+
+/* ---------- intro ---------- */
+.intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.intro-media{position:relative}
+.intro-media img{border-radius:var(--radius);box-shadow:var(--shadow);aspect-ratio:4/5;object-fit:cover;width:100%}
+.intro-media .stamp{position:absolute;right:-22px;bottom:40px;background:var(--red);color:#fff;border-radius:16px;padding:22px 26px;box-shadow:0 20px 40px -15px var(--red-glow);text-align:center}
+.intro-media .stamp b{display:block;font-family:var(--display);font-size:64px;line-height:.9;font-weight:400}
+.intro-media .stamp span{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.intro-media .awards{position:absolute;left:-22px;top:30px;display:flex;flex-direction:column;gap:10px}
+.intro-media .awards img{width:96px;height:auto;aspect-ratio:auto;box-shadow:none;border-radius:0;filter:drop-shadow(0 10px 20px rgba(0,0,0,.35))}
+.checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 22px;margin:28px 0 34px}
+.checks li{display:flex;gap:10px;font-weight:700;color:var(--ink);font-size:15px}
+.checks svg{width:20px;height:20px;color:var(--red);flex:none;margin-top:2px}
+.cares{display:flex;gap:16px;align-items:center;background:var(--soft);border-left:4px solid var(--red);padding:18px 20px;border-radius:0 12px 12px 0;margin-bottom:30px;font-size:15px}
+.cares svg{width:34px;height:34px;color:var(--red);flex:none}
+
+/* ---------- services ---------- */
+.services{background:var(--soft)}
+.svc{display:grid;grid-template-columns:1.05fr .95fr;gap:0;background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -40px rgba(0,0,0,.35);margin-bottom:34px}
+.svc:nth-child(even) .svc-media{order:2}
+.svc-media{position:relative;min-height:440px;overflow:hidden}
+.svc-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.svc:hover .svc-media img{transform:scale(1.05)}
+.svc-media .tag{position:absolute;left:22px;top:22px;background:var(--red);color:#fff;font-weight:800;font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-radius:8px}
+.svc-body{padding:52px 52px 46px;display:flex;flex-direction:column;justify-content:center}
+.svc-body .num{font-family:var(--display);font-size:20px;color:var(--red);letter-spacing:.1em}
+.svc-body h3{font-size:56px;margin:6px 0 16px}
+.svc-body p{font-size:16px}
+.svc-body ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 26px}
+.svc-body li{font-size:13px;font-weight:700;color:var(--ink);background:var(--soft);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.svc-quote{border-top:1px solid var(--line);padding-top:20px;margin-top:6px;display:flex;gap:14px;font-size:14px;font-style:italic}
+.svc-quote b{font-style:normal;display:block;margin-top:4px;color:var(--ink);font-size:13px}
+.svc-quote .q{font-family:Georgia,serif;font-size:56px;line-height:.8;color:var(--red);font-style:normal}
+.svc-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+/* ---------- how quote works ---------- */
+.how{background:var(--char);color:#d4d4d4;position:relative;overflow:hidden}
+.how::before{content:"";position:absolute;inset:0;background:url("https://www.ourintegritymatters.com/storage/2024/09/Emergency-Repair-scaled.jpg") center/cover;opacity:.14;filter:grayscale(1)}
+.how .wrap{position:relative}
+.how h2{color:#fff}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
+.how-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:34px 30px;position:relative}
+.how-card .ico{width:58px;height:58px;border-radius:14px;background:var(--red);display:flex;align-items:center;justify-content:center;margin-bottom:22px;box-shadow:0 14px 30px -10px var(--red-glow)}
+.how-card .ico svg{width:28px;height:28px;color:#fff}
+.how-card .step{position:absolute;right:26px;top:22px;font-family:var(--display);font-size:64px;color:rgba(255,255,255,.08);line-height:1}
+.how-card h3{color:#fff;font-size:32px;margin-bottom:10px}
+.how-cta{display:flex;justify-content:center;margin-top:46px;gap:14px;flex-wrap:wrap}
+
+/* ---------- why ---------- */
+.why .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:start}
+.why-sticky{position:sticky;top:120px}
+.why-sticky img{border-radius:var(--radius);margin-top:30px;box-shadow:var(--shadow);aspect-ratio:16/11;object-fit:cover;width:100%}
+.why-list{display:flex;flex-direction:column;gap:16px}
+.why-item{display:grid;grid-template-columns:78px 1fr;gap:20px;padding:28px;border:1px solid var(--line);border-radius:18px;transition:border .2s,box-shadow .2s,transform .2s;background:#fff}
+.why-item:hover{border-color:var(--red);box-shadow:0 24px 40px -28px rgba(211,18,37,.6);transform:translateX(6px)}
+.why-item .n{font-family:var(--display);font-size:60px;color:var(--red);line-height:.9}
+.why-item h3{font-size:30px;margin-bottom:6px}
+.why-item p{font-size:15px}
+
+/* ---------- reviews ---------- */
+.reviews{background:#000 url("https://ourintegritymatters.com/wp-content/uploads/2024/09/Reviews-Background.png") center/cover;position:relative;color:#d4d4d4}
+.reviews::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.78)}
+.reviews .wrap{position:relative}
+.reviews h2{color:#fff}
+.rating{display:inline-flex;align-items:center;gap:14px;background:#fff;color:var(--ink);padding:12px 18px;border-radius:12px;font-weight:800;margin-top:6px}
+.stars{display:flex;gap:2px;color:#FBBC05}
+.stars svg{width:18px;height:18px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rev{background:#fff;color:var(--gray);border-radius:18px;padding:30px;display:flex;flex-direction:column;gap:16px;font-size:15px}
+.rev-head{display:flex;justify-content:space-between;align-items:center}
+.rev-who{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+.avatar{width:42px;height:42px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
+.rev-who b{color:var(--ink);display:block;font-size:14px}
+.rev-who small{color:var(--mute);font-size:12px}
+.g{width:22px;height:22px}
+.rev-cta{display:flex;justify-content:center;gap:14px;margin-top:40px;flex-wrap:wrap}
+
+/* ---------- areas ---------- */
+.areas .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+.state{margin-bottom:26px}
+.state h3{font-size:32px;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.state h3 span{font-family:var(--body);font-size:12px;font-weight:800;background:var(--red);color:#fff;padding:3px 8px;border-radius:6px;letter-spacing:.1em}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--ink);transition:all .15s}
+.chips span:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.area-card{background:var(--ink);color:#d4d4d4;border-radius:20px;padding:40px;margin-top:30px}
+.area-card h3{color:#fff;font-size:36px;margin-bottom:10px}
+
+/* ---------- final cta ---------- */
+.final{background:var(--red);color:#fff;padding:80px 0;position:relative;overflow:hidden}
+.final::before{content:"";position:absolute;right:-80px;top:-60px;width:420px;height:420px;background:url("https://www.ourintegritymatters.com/storage/2024/09/IRE-House-Icon-White.png") center/contain no-repeat;opacity:.08}
+.final .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;position:relative}
+.final h2{color:#fff;font-size:clamp(46px,6vw,80px)}
+.final p{font-size:18px;color:#ffe3e6;margin-top:12px}
+.final .addr-field{border-color:transparent}
+.final .btn-dark{width:100%;margin-top:12px;padding:18px}
+.final .or{margin-top:14px;font-size:14px;color:#ffe3e6;text-align:center}
+.final .or a{color:#fff;font-weight:800;text-decoration:underline}
+
+/* ---------- careers ---------- */
+.careers{padding:0;background:var(--ink);color:#d4d4d4}
+.careers .grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.careers .img{background:url("https://www.ourintegritymatters.com/storage/2024/10/the-boys-1.png") center/cover;min-height:460px}
+.careers .copy{padding:90px 70px;display:flex;flex-direction:column;justify-content:center;background:url("https://ourintegritymatters.com/wp-content/uploads/2024/09/Join-Our-Team-Background.png") center/cover;position:relative}
+.careers .copy::before{content:"";position:absolute;inset:0;background:rgba(17,17,17,.88)}
+.careers .copy>*{position:relative}
+.careers h2{color:#fff;font-size:clamp(46px,5vw,68px);margin:14px 0 16px}
+.careers .copy .btn{align-self:flex-start;margin-top:26px}
+
+/* ---------- footer ---------- */
+footer{background:#0A0A0A;color:#a3a3a3;padding:80px 0 0;font-size:14px}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px}
+.foot img{height:52px;width:auto;margin-bottom:18px}
+.foot h4{font-family:var(--display);font-weight:400;font-size:24px;color:#fff;letter-spacing:.04em;margin-bottom:14px}
+.foot ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot a:hover{color:#fff}
+.foot .big{font-family:var(--display);font-size:34px;color:#fff;display:block;line-height:1}
+.foot .socials{display:flex;gap:10px;margin-top:18px}
+.foot .socials a{width:40px;height:40px;border-radius:10px;background:#1c1c1c;display:flex;align-items:center;justify-content:center}
+.foot .socials a:hover{background:var(--red)}
+.foot .socials svg{width:18px;height:18px;color:#fff}
+.legal{border-top:1px solid #1f1f1f;margin-top:60px;padding:22px 0;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:12px}
+
+/* ---------- floating quote ---------- */
+.side-tab{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:60;background:var(--red);color:#fff;writing-mode:vertical-rl;padding:22px 12px;border-radius:12px 0 0 12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:13px;box-shadow:0 10px 30px -8px var(--red-glow);display:flex;align-items:center;gap:10px;transition:padding .2s}
+.side-tab:hover{padding-right:18px}
+.side-tab svg{width:18px;height:18px;transform:rotate(90deg)}
+.mobile-bar{display:none}
+
+/* ---------- reveal ---------- */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.js .reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   INSTANT ESTIMATOR (Roofle-style)
+   ========================================================= */
+.est{position:fixed;inset:0;z-index:100;display:none;background:rgba(10,10,10,.72);backdrop-filter:blur(6px);padding:24px;overflow-y:auto}
+.est.open{display:flex;align-items:flex-start;justify-content:center}
+.est-panel{background:#fff;width:100%;max-width:980px;border-radius:22px;overflow:hidden;box-shadow:0 50px 100px -30px rgba(0,0,0,.8);margin:auto 0;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(20px) scale(.98)}to{opacity:1;transform:none}}
+.est-top{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;border-bottom:1px solid var(--line);gap:16px}
+.est-top img{height:38px;width:auto}
+.est-top .ttl{font-family:var(--display);font-size:24px;color:var(--ink);letter-spacing:.04em}
+.est-close{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--soft)}
+.est-close:hover{background:var(--line)}
+.est-close svg{width:20px;height:20px}
+.est-progress{height:4px;background:var(--soft)}
+.est-progress i{display:block;height:100%;width:0;background:var(--red);transition:width .4s}
+.est-steps{display:flex;gap:6px;padding:14px 26px 0;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#b3b3b3;flex-wrap:wrap}
+.est-steps span.on{color:var(--red)}
+.est-steps span.done{color:var(--ink)}
+.est-steps span:not(:last-child)::after{content:"›";margin-left:6px;color:#d4d4d4}
+.est-body{padding:26px}
+.view{display:none}
+.view.on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.view h3{font-size:44px;margin-bottom:6px}
+.view .sub{color:var(--mute);margin-bottom:20px}
+
+.est-split{display:grid;grid-template-columns:1.25fr .75fr;gap:26px;align-items:start}
+.sat{position:relative;width:100%;aspect-ratio:16/11;border-radius:16px;overflow:hidden;background:#2a2f2a;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)}
+.sat .tiles{position:absolute;inset:0}
+.sat .tiles img{position:absolute;width:256px;height:256px;max-width:none}
+.sat svg.ov{position:absolute;inset:0;width:100%;height:100%}
+.sat .poly{fill:rgba(211,18,37,.28);stroke:#ff2a3d;stroke-width:3;stroke-linejoin:round;stroke-dasharray:2000;stroke-dashoffset:2000;animation:draw 1.6s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+#confirmMap{position:absolute;inset:0;z-index:0;background:#2a2f2a}
+#satConfirm .chip{z-index:500;pointer-events:none}
+.map-hint{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:500;background:var(--red);color:#fff;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:999px;pointer-events:none;white-space:nowrap;box-shadow:0 6px 16px -6px rgba(0,0,0,.6)}
+.map-tools{position:absolute;right:12px;bottom:22px;z-index:600;display:flex;gap:8px}
+.map-tools button{background:#fff;color:var(--ink);font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:9px 12px;border-radius:10px;box-shadow:0 6px 16px -6px rgba(0,0,0,.6)}
+.map-tools button:hover{background:var(--soft)}
+#traceDone{background:var(--red);color:#fff}
+.map-tools button[disabled]{opacity:.5;cursor:not-allowed}
+#satConfirm .chip{max-width:calc(100% - 200px)}
+.trace-dot{background:#fff;border:3px solid var(--red);border-radius:50%}
+.pin-icon{background:none;border:0}
+.pin-icon svg{width:40px;height:40px;color:var(--red);filter:drop-shadow(0 4px 6px rgba(0,0,0,.6));cursor:grab}
+.sat .poly{cursor:pointer}
+.sat .poly.alt{fill:rgba(255,255,255,.06);stroke:rgba(255,255,255,.85);stroke-width:1.5;stroke-dasharray:5 4;animation:none}
+.sat .poly.alt:hover{fill:rgba(255,255,255,.22)}
+.sat.static .poly:not(.alt){animation:none;stroke-dasharray:none}
+.sat .pin{position:absolute;left:50%;top:50%;width:34px;height:34px;transform:translate(-50%,-100%);color:var(--red);filter:drop-shadow(0 4px 6px rgba(0,0,0,.5))}
+.sat .scan{position:absolute;left:0;right:0;height:120px;top:-120px;background:linear-gradient(180deg,transparent,rgba(211,18,37,.0) 20%,rgba(255,60,80,.45) 95%,#ff3b4e);animation:scan 1.5s linear infinite;mix-blend-mode:screen}
+@keyframes scan{to{top:100%}}
+.sat .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.12) 1px,transparent 1px);background-size:32px 32px}
+.sat .chip{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.72);color:#fff;font-size:12px;font-weight:700;padding:8px 12px;border-radius:8px;backdrop-filter:blur(4px);max-width:calc(100% - 28px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sat .credit{position:absolute;right:6px;bottom:4px;font-size:9px;color:rgba(255,255,255,.7)}
+.measure-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.measure-list li{display:flex;align-items:center;gap:12px;font-weight:700;color:#b3b3b3;transition:color .3s}
+.measure-list li .dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
+.measure-list li.on{color:var(--ink)}
+.measure-list li.on .dot{border-color:var(--red);border-top-color:transparent;animation:spin .8s linear infinite}
+.measure-list li.done{color:var(--ink)}
+.measure-list li.done .dot{background:var(--red);border-color:var(--red);animation:none}
+.measure-list li.done .dot::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.stat-box{background:var(--soft);border-radius:16px;padding:20px}
+.stat-box .big{font-family:var(--display);font-size:58px;color:var(--ink);line-height:1}
+.stat-box .lbl{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.stat-box input[type=range]{width:100%;accent-color:var(--red);margin-top:12px}
+.stat-box .note{font-size:12px;color:var(--mute);margin-top:6px}
+.opt-group{margin-top:18px}
+.opt-group label.t{display:block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:8px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg button{border:2px solid var(--line);border-radius:10px;padding:10px 6px;font-weight:700;font-size:13px;color:var(--ink);line-height:1.2;transition:all .15s}
+.seg button small{display:block;font-weight:500;color:var(--mute);font-size:11px;margin-top:2px}
+.seg button.on{border-color:var(--red);background:#FDECEE}
+.est-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
+.link-back{font-weight:700;color:var(--mute);display:inline-flex;gap:6px;align-items:center}
+.link-back:hover{color:var(--ink)}
+.link-back svg{width:16px;height:16px}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-grid .full{grid-column:1/-1}
+.fld label{display:block;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:6px}
+.fld input,.fld select{width:100%;border:2px solid var(--line);border-radius:10px;padding:14px;font:inherit;font-size:16px;color:var(--ink);outline:0;background:#fff;transition:border .2s,box-shadow .2s}
+.fld input:focus,.fld select:focus{border-color:var(--red);box-shadow:0 0 0 4px rgba(211,18,37,.12)}
+.fld input.bad{border-color:var(--red)}
+.lock-preview{position:relative;border-radius:16px;overflow:hidden;background:var(--soft);padding:22px}
+.lock-preview .blur{filter:blur(7px);user-select:none;pointer-events:none}
+.lock-preview .lock{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;background:rgba(255,255,255,.35);font-weight:800;color:var(--ink);padding:20px}
+.lock-preview .lock svg{width:38px;height:38px;color:var(--red)}
+.mini-tier{background:#fff;border-radius:12px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;font-weight:800;color:var(--ink)}
+.fine{font-size:12px;color:var(--mute);margin-top:12px}
+
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tier{border:2px solid var(--line);border-radius:18px;padding:24px 22px;display:flex;flex-direction:column;position:relative;cursor:pointer;transition:border .2s,transform .2s,box-shadow .2s;background:#fff;text-align:left}
+.tier:hover{transform:translateY(-4px);box-shadow:0 24px 40px -28px rgba(0,0,0,.5)}
+.tier.on{border-color:var(--red);box-shadow:0 24px 40px -24px rgba(211,18,37,.55)}
+.tier .pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.tier .swatch{height:84px;border-radius:12px;margin-bottom:16px;background-size:cover;position:relative;overflow:hidden}
+.tier .lvl{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.tier h4{font-family:var(--display);font-weight:400;font-size:30px;color:var(--ink);line-height:1;margin:4px 0 2px;letter-spacing:.02em}
+.tier .brand{font-size:13px;color:var(--mute)}
+.tier .price{font-family:var(--display);font-size:42px;color:var(--ink);line-height:1;margin:16px 0 2px}
+.tier .mo{font-size:14px;font-weight:700;color:var(--ink)}
+.tier .mo b{color:var(--red)}
+.tier ul{list-style:none;margin:16px 0 4px;display:flex;flex-direction:column;gap:7px;font-size:13px}
+.tier li{display:flex;gap:8px}
+.tier li svg{width:16px;height:16px;color:var(--red);flex:none;margin-top:3px}
+.tier .radio{position:absolute;top:20px;right:20px;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);background:#fff}
+.tier.on .radio{border:7px solid var(--red)}
+.result-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-end;flex-wrap:wrap;margin-bottom:26px}
+.result-meta{display:flex;gap:10px;flex-wrap:wrap}
+.result-meta span{background:var(--soft);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700;color:var(--ink)}
+.result-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--ink);color:#fff;border-radius:16px;padding:18px 22px;margin-top:22px;flex-wrap:wrap}
+.result-bar .sel{font-size:13px;color:#bdbdbd}
+.result-bar .sel b{display:block;font-family:var(--display);font-size:28px;color:#fff;font-weight:400;letter-spacing:.03em}
+.done-view{text-align:center;padding:30px 10px 20px}
+.done-view .ok{width:84px;height:84px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;box-shadow:0 0 0 12px #FDECEE}
+.done-view .ok svg{width:40px;height:40px;color:#fff}
+.summary{max-width:520px;margin:24px auto 0;text-align:left;background:var(--soft);border-radius:16px;padding:20px 22px;font-size:14px}
+.summary div{display:flex;justify-content:space-between;gap:16px;padding:7px 0;border-bottom:1px solid var(--line)}
+.summary div:last-child{border:0}
+.summary b{color:var(--ink);text-align:right}
+.slots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:18px}
+.slots button{border:2px solid var(--line);border-radius:10px;padding:10px 14px;font-weight:700;font-size:13px;color:var(--ink)}
+.slots button.on{border-color:var(--red);background:#FDECEE}
+.err{color:var(--red);font-size:13px;font-weight:700;margin-top:8px;min-height:18px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .menu{display:none}
+  .burger{display:flex}
+  .nav-phone{display:none}
+  .hero .wrap{grid-template-columns:1fr;gap:40px}
+  .intro .wrap,.why .wrap,.areas .wrap,.final .wrap{grid-template-columns:1fr;gap:44px}
+  .why-sticky{position:static}
+  .svc,.svc:nth-child(even){grid-template-columns:1fr}
+  .svc:nth-child(even) .svc-media{order:0}
+  .svc-media{min-height:300px}
+  .how-grid,.rev-grid{grid-template-columns:1fr 1fr}
+  .foot{grid-template-columns:1fr 1fr}
+  .careers .grid{grid-template-columns:1fr}
+  .careers .img{min-height:320px}
+  .mobile-menu.open{display:flex;flex-direction:column;padding:10px 24px 22px;border-top:1px solid var(--line);background:#fff}
+  .mobile-menu a{padding:12px 0;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);border-bottom:1px solid var(--line)}
+  .est-split{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr}
+  .tier .pop{left:auto;right:56px;transform:none}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  .topbar .left span.area,.topbar .social{display:none}
+  .topbar .wrap{justify-content:center}
+  header.nav .wrap{height:68px}
+  .logo img{height:40px}
+  .nav-cta .btn{display:none}
+  .hero .wrap{padding-top:40px;padding-bottom:60px}
+  .hero p.lead{font-size:16px}
+  .hero-proof{gap:20px}
+  .hero-proof b{font-size:32px}
+  .hero-actions .btn{flex:1}
+  .quote-card{padding:24px 20px}
+  .quote-card h2{font-size:36px}
+  .qc-trust{flex-direction:column;gap:8px}
+  section{padding:76px 0}
+  .trust-awards img{height:60px}
+  .trust-awards p{font-size:24px}
+  .trust-items{gap:18px}
+  .intro-media .stamp{right:10px;bottom:16px;padding:16px 18px}
+  .intro-media .stamp b{font-size:46px}
+  .intro-media .awards{left:10px;top:10px}
+  .intro-media .awards img{width:70px}
+  .checks{grid-template-columns:1fr}
+  .svc-body{padding:30px 22px}
+  .svc-body h3{font-size:44px}
+  .how-grid,.rev-grid{grid-template-columns:1fr}
+  .why-item{grid-template-columns:1fr;gap:6px;padding:22px}
+  .why-item .n{font-size:44px}
+  .careers .copy{padding:60px 22px}
+  .area-card{padding:28px 22px}
+  .foot{grid-template-columns:1fr}
+  .side-tab{display:none}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1.4fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:70;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:#fff;box-shadow:0 -10px 30px -10px rgba(0,0,0,.3)}
+  .mobile-bar .btn{padding:14px 10px;font-size:14px}
+  body{padding-bottom:76px}
+  .est{padding:0}
+  .est-panel{border-radius:0;min-height:100%;margin:0}
+  .est-body{padding:20px 16px}
+  .est-top{padding:14px 16px}
+  .est-top .ttl{display:none}
+  .est-steps{padding:12px 16px 0}
+  .view h3{font-size:36px}
+  .form-grid{grid-template-columns:1fr}
+  .seg button{font-size:12px}
+  .result-bar .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js');document.body.classList.add('js')</script>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-checkc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="currentColor"/><path fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m7 12.5 3.2 3L17 9"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5zm-1.2 14.2L7 12.4l1.4-1.4 2.4 2.4 4.8-4.8 1.4 1.4z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 10.4 3.5 2.1-.8 1.3L11 13V7h2z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2 4 14h6l-1 8 9-12h-6z"/></symbol>
+  <symbol id="i-broom" viewBox="0 0 24 24"><path fill="currentColor" d="M19.4 2.6 21 4.2l-6.3 6.3 1.4 1.4-1.4 1.4-4.2-4.2 1.4-1.4 1.4 1.4zM9.5 10.5l4 4-1 6.5H3s1.5-6 6.5-10.5z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3 2 11h3v10h6v-6h2v6h6V11h3z"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-8-4.9-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6.1-8 11-8 11z"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm-4.5 13.6L6 22l6-3 6 3-1.5-6.4A9 9 0 0 1 12 17a9 9 0 0 1-4.5-1.4z"/></symbol>
+  <symbol id="i-sat" viewBox="0 0 24 24"><path fill="currentColor" d="M5.6 3.2 9.8 7.4 7.4 9.8 3.2 5.6zm9 9 4.2 4.2-2.4 2.4-4.2-4.2zM9.2 8.8l4-4 6 6-4 4zM4 20a6 6 0 0 1 6-6v2a4 4 0 0 0-4 4z"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4 11.6 12.4 2.6A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7c0 .55.22 1.05.59 1.42l9 9a2 2 0 0 0 2.82 0l7-7a2 2 0 0 0 0-2.82zM6.5 8A1.5 1.5 0 1 1 6.5 5a1.5 1.5 0 0 1 0 3z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><path fill="currentColor" d="M17 9V7A5 5 0 0 0 7 7v2H5v13h14V9zm-8-2a3 3 0 0 1 6 0v2H9zm4 10.7V19h-2v-1.3a2 2 0 1 1 2 0z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M14 8V6c0-.9.6-1 1-1h3V1h-4c-4 0-5 3-5 5v2H6v4h3v11h5V12h3.6l.4-4z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2c-2.7 0-3 0-4.1.06C4.3 2.2 2.2 4.3 2.06 7.9 2 9 2 9.3 2 12s0 3 .06 4.1c.15 3.6 2.24 5.7 5.84 5.84C9 22 9.3 22 12 22s3 0 4.1-.06c3.6-.15 5.7-2.24 5.84-5.84C22 15 22 14.7 22 12s0-3-.06-4.1C21.8 4.3 19.7 2.2 16.1 2.06 15 2 14.7 2 12 2z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8zM9.8 15V9l5.7 3z"/></symbol>
+</svg>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="wrap">
+    <div class="left">
+      <span class="area"><svg><use href="#i-pin"/></svg>Serving Southern Illinois &amp; Western Kentucky</span>
+      <a href="tel:18888795910"><span><svg><use href="#i-phone"/></svg>1-888-879-5910 &middot; 24/7 Storm Response</span></a>
+    </div>
+    <div class="social">
+      <a href="#careers">Careers</a>
+      <a href="https://ourintegritymatters.com/reviews/" target="_blank" rel="noopener">Write a Review</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Integrity Roofing & Exteriors home"><img src="https://www.ourintegritymatters.com/storage/2024/08/AE_IR_Main-1-6-1.png" alt="Integrity Roofing & Exteriors"></a>
+    <nav class="menu" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Integrity</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#areas">Service Areas</a>
+      <a href="#careers">Careers</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:18888795910"><small>Call for a free inspection</small><b>1-888-879-5910</b></a>
+      <button class="btn btn-red" data-open-est><svg><use href="#i-bolt"/></svg>Instant Quote</button>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+    <a href="#about">About</a><a href="#services">Services</a><a href="#why">Why Integrity</a><a href="#reviews">Reviews</a><a href="#areas">Service Areas</a><a href="#careers">Careers</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- ============ HERO ============ -->
+<section class="hero" style="padding:0">
+  <img class="poster" src="https://www.ourintegritymatters.com/storage/2024/09/Residential-Roofing-scaled.jpg" alt="">
+  <video autoplay muted loop playsinline preload="metadata" poster="https://www.ourintegritymatters.com/storage/2024/09/Residential-Roofing-scaled.jpg">
+    <source src="https://ourintegritymatters.com/wp-content/uploads/2024/08/IRE-Cover-Video-1.mp4" type="video/mp4">
+  </video>
+  <div class="wrap">
+    <div>
+      <span class="hero-tag"><img src="https://www.ourintegritymatters.com/storage/2024/09/IRE-House-Icon-White.png" alt="">Integrity has you covered</span>
+      <h1>In everything we do, <span class="red">Integrity Matters.</span></h1>
+      <p class="lead">Honest roofing guidance, top-tier GAF materials, and one-day installs for homes and businesses across Southern Illinois and Western Kentucky &mdash; since 2008.</p>
+      <div class="hero-actions">
+        <button class="btn btn-red" data-open-est><svg><use href="#i-bolt"/></svg>Get My Instant Quote</button>
+        <a class="btn btn-ghost" href="tel:18888795910"><svg><use href="#i-phone"/></svg>1-888-879-5910</a>
+      </div>
+      <div class="hero-proof">
+        <div><b>2008</b><span>Established</span></div>
+        <div><b>1 Day</b><span>Typical install</span></div>
+        <div><b>Lifetime</b><span>Warranty</span></div>
+        <div><b>#1</b><span>Voted best roofer</span></div>
+      </div>
+    </div>
+
+    <!-- Instant quote card: plain-sight entry into the estimator -->
+    <div class="quote-card reveal" id="quote">
+      <span class="qc-badge"><i></i>Instant Roof Quote</span>
+      <h2>See your price in 30 seconds</h2>
+      <p>We measure your roof from satellite imagery and show real pricing &mdash; no appointment, no pressure.</p>
+      <form class="addr" data-addr-form autocomplete="off">
+        <div class="addr-field"><svg><use href="#i-pin"/></svg><input type="text" name="address" placeholder="Enter your home address" aria-label="Home address" required></div>
+        <div class="suggest" role="listbox"></div>
+        <button class="btn btn-red" type="submit">Get My Price <svg><use href="#i-arrow"/></svg></button>
+      </form>
+      <div class="qc-trust">
+        <span><svg><use href="#i-shield"/></svg>GAF Master Elite</span>
+        <span><svg><use href="#i-clock"/></svg>Takes 30 seconds</span>
+        <span><svg><use href="#i-tag"/></svg>Financing available</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-awards">
+      <img src="https://www.ourintegritymatters.com/storage/2024/10/RC-SI-Winner-2024-1.png" alt="Readers' Choice Southern Illinois winner">
+      <img src="https://www.ourintegritymatters.com/storage/2024/10/RC-2024-Winner-Emblem-1-1.png" alt="Readers' Choice 2024 winner">
+      <p>Voted <span class="red">Best Roofing Company</span> in SoIL &amp; WKY</p>
+    </div>
+    <div class="trust-items">
+      <div><svg><use href="#i-award"/></svg><span>GAF Master Elite<small>Top tier of GAF contractors</small></span></div>
+      <div><svg><use href="#i-shield"/></svg><span>Licensed &amp; Insured<small>Residential &amp; commercial</small></span></div>
+      <div><svg><use href="#i-heart"/></svg><span>Integrity Cares<small>Supporting local non-profits &amp; veterans</small></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ INTRO ============ -->
+<section class="intro" id="about">
+  <div class="wrap">
+    <div class="intro-media reveal">
+      <img src="https://www.ourintegritymatters.com/storage/2024/10/the-boys-1.png" alt="The Integrity Roofing crew" loading="lazy">
+      <div class="awards">
+        <img src="https://www.ourintegritymatters.com/storage/2024/10/RC-2024-Winner-Emblem-1-1.png" alt="" loading="lazy">
+      </div>
+      <div class="stamp"><b>17+</b><span>Years protecting<br>our region</span></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow">Voted best roofing company</span>
+      <h2 style="font-size:clamp(44px,5.5vw,72px);margin:14px 0 20px">Protecting what matters most &mdash; <span class="red">since 2008.</span></h2>
+      <p>Year after year, our neighbors in Southern Illinois and Western Kentucky have voted Integrity Roofing &amp; Exteriors their best roofing company. We earn it the same way every time: clear, honest guidance on replacement, installation and maintenance, crews who treat your home like their own, and warranties that actually mean something.</p>
+      <ul class="checks">
+        <li><svg><use href="#i-checkc"/></svg>No-pressure consultations</li>
+        <li><svg><use href="#i-checkc"/></svg>Competitive, upfront pricing</li>
+        <li><svg><use href="#i-checkc"/></svg>Most roofs done in one day</li>
+        <li><svg><use href="#i-checkc"/></svg>Insurance claim guidance</li>
+        <li><svg><use href="#i-checkc"/></svg>Spotless clean-up, every job</li>
+        <li><svg><use href="#i-checkc"/></svg>Lifetime warranty options</li>
+      </ul>
+      <div class="cares"><svg><use href="#i-heart"/></svg><div><b style="color:var(--ink)">Integrity Cares.</b> Our commitment goes beyond the roofline &mdash; we give back to non-profit and veterans organizations across the region.</div></div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn btn-red" data-open-est>Get My Instant Quote</button>
+        <a class="btn btn-outline" href="tel:18888795910">Contact Our Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Roofing services</span>
+      <h2>Every roof. Every storm. <span class="red">One trusted team.</span></h2>
+      <p>From a new home roof to an emergency tarp at 2&nbsp;a.m. to a full commercial system, Integrity has you covered.</p>
+    </div>
+
+    <article class="svc reveal">
+      <div class="svc-media"><img src="https://www.ourintegritymatters.com/storage/2024/09/Residential-Roofing-scaled.jpg" alt="Residential roof installation" loading="lazy"><span class="tag">Most popular</span></div>
+      <div class="svc-body">
+        <span class="num">01 / Residential</span>
+        <h3>Residential Roofing</h3>
+        <p>Top-tier materials, no-pressure salesmanship, and some of the strongest warranties in the industry. As a GAF Master Elite Contractor, we handle installation, repair, storm restoration and roof rejuvenation &mdash; fast, friendly and done right.</p>
+        <ul><li>Roof replacement</li><li>New installs</li><li>Repairs</li><li>Storm restoration</li><li>Rejuvenation</li><li>Gutters</li></ul>
+        <div class="svc-actions"><button class="btn btn-red" data-open-est>Price My Roof</button><a class="btn btn-outline" href="tel:18888795910">Free Inspection</a></div>
+      </div>
+    </article>
+
+    <article class="svc reveal">
+      <div class="svc-media"><img src="https://www.ourintegritymatters.com/storage/2024/09/Emergency-Repair-scaled.jpg" alt="Emergency roof repair" loading="lazy"><span class="tag">24/7 response</span></div>
+      <div class="svc-body">
+        <span class="num">02 / Emergency</span>
+        <h3>Emergency Repair</h3>
+        <p>When severe weather hits, we move fast &mdash; leaks, missing shingles, wind and tornado damage. We tarp and protect your home right away, then restore your roof to its pre-damaged condition with quality materials and expert craftsmanship.</p>
+        <ul><li>Storm &amp; hail damage</li><li>Emergency tarping</li><li>Leak repair</li><li>Insurance claims</li></ul>
+        <div class="svc-actions"><a class="btn btn-red" href="tel:18888795910"><svg><use href="#i-phone"/></svg>Call Now</a><button class="btn btn-outline" data-open-est>Instant Quote</button></div>
+      </div>
+    </article>
+
+    <article class="svc reveal">
+      <div class="svc-media"><img src="https://www.ourintegritymatters.com/storage/2024/10/commercial-roofing-01.webp" alt="Commercial roofing" loading="lazy"><span class="tag">Licensed &amp; insured</span></div>
+      <div class="svc-body">
+        <span class="num">03 / Commercial</span>
+        <h3>Commercial Roofing</h3>
+        <p>Projects big and small for businesses across the region. Our trained crews install and repair every major commercial system with top-of-the-line materials &mdash; so the job gets done right the first time and your business stays protected.</p>
+        <ul><li>EPDM</li><li>TPO</li><li>PVC</li><li>Metal roofing</li><li>Coatings</li><li>Maintenance plans</li></ul>
+        <div class="svc-actions"><a class="btn btn-red" href="tel:18888795910">Request a Bid</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ HOW THE QUOTE WORKS ============ -->
+<section class="how">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Instant roof quote</span>
+      <h2>Your real price. <span class="red">No sales visit required.</span></h2>
+      <p>Skip the waiting. Our satellite estimator measures your roof and prices real GAF systems in about 30 seconds.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card reveal"><span class="step">01</span><div class="ico"><svg><use href="#i-pin"/></svg></div><h3>Enter your address</h3><p>Start typing and pick your home from the list.</p></div>
+      <div class="how-card reveal"><span class="step">02</span><div class="ico"><svg><use href="#i-sat"/></svg></div><h3>We measure from above</h3><p>Satellite imagery and building data estimate your roof's size &mdash; you can fine-tune it.</p></div>
+      <div class="how-card reveal"><span class="step">03</span><div class="ico"><svg><use href="#i-tag"/></svg></div><h3>Pick your roof</h3><p>Compare Good / Better / Best systems with prices and monthly payments side by side.</p></div>
+    </div>
+    <div class="how-cta"><button class="btn btn-red" data-open-est><svg><use href="#i-bolt"/></svg>Start My Instant Quote</button></div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="why-sticky reveal">
+      <span class="eyebrow">Why choose Integrity</span>
+      <h2 style="font-size:clamp(48px,6vw,84px);margin:14px 0 18px">You deserve <span class="red">better.</span></h2>
+      <p>Your home is where your family's memories are made. Here's what you can count on from the first handshake to the final magnet sweep.</p>
+      <img src="https://www.ourintegritymatters.com/storage/2024/10/YouDeserveBetter.webp" alt="Integrity Roofing crew on a finished roof" loading="lazy">
+    </div>
+    <div class="why-list">
+      <div class="why-item reveal"><span class="n">01</span><div><h3>Complimentary Lifetime Warranty</h3><p>As a GAF Master Elite Contractor, we back every roofing project with industry-leading lifetime warranty coverage.</p></div></div>
+      <div class="why-item reveal"><span class="n">02</span><div><h3>On Time, Every Time</h3><p>We respect your schedule, show up when we say we will, and keep you informed if weather causes any delay.</p></div></div>
+      <div class="why-item reveal"><span class="n">03</span><div><h3>One-Day Roof Assurance</h3><p>Most roofs are torn off and completed in a single day, keeping disruption to your life at a minimum.</p></div></div>
+      <div class="why-item reveal"><span class="n">04</span><div><h3>No Mess Left Behind</h3><p>Ground protection, debris management and a full magnetic nail sweep &mdash; your property is left spotless.</p></div></div>
+      <div class="why-item reveal"><span class="n">05</span><div><h3>We Protect What Matters Most</h3><p>Your home holds your family and your most valuable things. We treat it that way on every single job.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<!-- NOTE: review cards below are placeholders. Swap in live Google reviews before launch. -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Reviews from our customers</span>
+      <h2>Five-star work. <span class="red">Five-star clean-up.</span></h2>
+      <div class="rating"><svg class="g" viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3A12 12 0 1 1 24 12a11.9 11.9 0 0 1 8.4 3.3l5.7-5.7A20 20 0 1 0 44 24c0-1.2-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8A12 12 0 0 1 24 12a11.9 11.9 0 0 1 8.4 3.3l5.7-5.7A20 20 0 0 0 6.3 14.7z"/><path fill="#4CAF50" d="M24 44a20 20 0 0 0 13.5-5.2l-6.2-5.3A12 12 0 0 1 12.7 28l-6.5 5A20 20 0 0 0 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.2-.1-2.3-.4-3.5z"/></svg><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Five-star reviews on Google</div>
+    </div>
+    <div class="rev-grid">
+      <div class="rev reveal"><div class="rev-head"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="g" viewBox="0 0 48 48"><path fill="#4285F4" d="M24 20v8h11.3A12 12 0 1 1 24 12l5.7-5.7A20 20 0 1 0 44 24c0-1.3-.1-2.7-.4-4z"/></svg></div><p>Thorough inspection, showed up right on time, and the crew did a fantastic job on both the roof and the gutters. They cleaned up everything before they left. Highly recommend.</p><div class="rev-who"><span class="avatar">H</span><div><b>Homeowner</b><small>Paducah, KY &middot; Roof &amp; gutters</small></div></div></div>
+      <div class="rev reveal"><div class="rev-head"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="g" viewBox="0 0 48 48"><path fill="#4285F4" d="M24 20v8h11.3A12 12 0 1 1 24 12l5.7-5.7A20 20 0 1 0 44 24c0-1.3-.1-2.7-.4-4z"/></svg></div><p>Tornado came through and they had a tarp on our roof fast. Our consultant patiently explained everything, and the crew finished the house and our storage building in one day. The clean-up was even better than the install.</p><div class="rev-who"><span class="avatar">S</span><div><b>Storm customer</b><small>Marion, IL &middot; Emergency repair</small></div></div></div>
+      <div class="rev reveal"><div class="rev-head"><span class="stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span><svg class="g" viewBox="0 0 48 48"><path fill="#4285F4" d="M24 20v8h11.3A12 12 0 1 1 24 12l5.7-5.7A20 20 0 1 0 44 24c0-1.3-.1-2.7-.4-4z"/></svg></div><p>No upselling, no pressure &mdash; just straight answers and top-quality work. The team went above and beyond on our building's roof. They truly live up to their name.</p><div class="rev-who"><span class="avatar">B</span><div><b>Business owner</b><small>Carbondale, IL &middot; Commercial</small></div></div></div>
+    </div>
+    <div class="rev-cta"><a class="btn btn-red" href="https://ourintegritymatters.com/reviews/" target="_blank" rel="noopener">Read More Reviews</a><a class="btn btn-ghost" href="https://ourintegritymatters.com/reviews/" target="_blank" rel="noopener">Write a Review</a></div>
+  </div>
+</section>
+
+<!-- ============ SERVICE AREAS ============ -->
+<section class="areas" id="areas">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">Where we work</span>
+      <h2 style="font-size:clamp(44px,5.5vw,72px);margin:14px 0 18px">Serving Southern Illinois <span class="red">&amp; Western Kentucky</span></h2>
+      <p>The most trusted roofing contractor in the region. We'll guide you through every step so you can make the best decision for your home or business.</p>
+      <div class="area-card">
+        <h3>Not sure if we cover you?</h3>
+        <p>Enter your address in the instant quote &mdash; if we can price it, we can roof it.</p>
+        <button class="btn btn-red" style="margin-top:20px" data-open-est>Check My Address</button>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="state"><h3>Kentucky <span>KY</span></h3><div class="chips"><span>Paducah</span><span>Wycliffe</span><span>Smithland</span><span>Grand Rivers</span><span>Mayfield</span><span>Benton</span><span>Murray</span><span>Clinton</span><span>Bardwell</span><span>Calvert City</span></div></div>
+      <div class="state"><h3>Illinois <span>IL</span></h3><div class="chips"><span>Mt. Vernon</span><span>Carmi</span><span>Harrisburg</span><span>Marion</span><span>Carterville</span><span>Vienna</span><span>Anna</span><span>Cobden</span><span>Metropolis</span><span>Golconda</span><span>Elizabethtown</span><span>Fairfield</span><span>McLeansboro</span><span>Du Quoin</span><span>Carbondale</span><span>Herrin</span><span>Mounds</span><span>Ridgway</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>What will your new roof cost?</h2>
+      <p>Find out right now. Enter your address and get Good / Better / Best pricing in about 30 seconds.</p>
+    </div>
+    <form class="addr reveal" data-addr-form autocomplete="off" style="margin:0">
+      <div class="addr-field"><svg><use href="#i-pin"/></svg><input type="text" name="address" placeholder="Enter your home address" aria-label="Home address" required></div>
+      <div class="suggest" role="listbox"></div>
+      <button class="btn btn-dark" type="submit">Get My Instant Quote <svg><use href="#i-arrow"/></svg></button>
+      <p class="or">Rather talk to a person? <a href="tel:18888795910">Call 1-888-879-5910</a></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ CAREERS ============ -->
+<section class="careers" id="careers">
+  <div class="grid">
+    <div class="img" role="img" aria-label="Integrity Roofing team"></div>
+    <div class="copy reveal">
+      <span class="eyebrow">Join our team</span>
+      <h2>Build a career with <span class="red">Integrity.</span></h2>
+      <p>Leadership, community service, and integrity are at the heart of everything we do. We're always looking for driven people who want to grow with the region's top roofing team.</p>
+      <a class="btn btn-red" href="https://www.ourintegritymatters.com/careers/" target="_blank" rel="noopener">View Open Positions</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img src="https://www.ourintegritymatters.com/storage/2024/09/IRE-Logo-Inverse.png" alt="Integrity Roofing & Exteriors">
+        <p>GAF Master Elite roofing contractor protecting homes and businesses across Southern Illinois and Western Kentucky since 2008.</p>
+        <div class="socials"><a href="https://www.facebook.com/integrityroofingandexteriors" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a><a href="https://www.instagram.com/_integrity_roofing/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a><a href="https://www.youtube.com/@integrityroofingexteriors1039" target="_blank" rel="noopener" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a></div>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#services">Residential Roofing</a></li><li><a href="#services">Emergency Repair</a></li><li><a href="#services">Commercial Roofing</a></li><li><a href="#services">Storm Restoration</a></li><li><a href="#services">Gutters</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#about">About</a></li><li><a href="#why">Why Integrity</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#careers">Careers</a></li><li><a href="#" data-open-est>Instant Quote</a></li></ul></div>
+      <div><h4>Get in touch</h4><a class="big" href="tel:18888795910">1-888-879-5910</a><p style="margin-top:8px">24/7 emergency storm response</p><button class="btn btn-red" style="margin-top:18px" data-open-est>Instant Quote</button></div>
+    </div>
+    <div class="legal"><span>&copy; <span id="yr"></span> Integrity Roofing &amp; Exteriors. All rights reserved.</span><span>Demo concept &mdash; pricing shown is illustrative.</span></div>
+  </div>
+</footer>
+
+<button class="side-tab" data-open-est><svg><use href="#i-bolt"/></svg>Instant Roof Quote</button>
+<div class="mobile-bar">
+  <a class="btn btn-dark" href="tel:18888795910"><svg><use href="#i-phone"/></svg>Call</a>
+  <button class="btn btn-red" data-open-est><svg><use href="#i-bolt"/></svg>Instant Quote</button>
+</div>
+
+<!-- =====================================================
+     INSTANT ESTIMATOR MODAL
+     ===================================================== -->
+<div class="est" id="est" role="dialog" aria-modal="true" aria-label="Instant roof quote">
+  <div class="est-panel">
+    <div class="est-top">
+      <img src="https://www.ourintegritymatters.com/storage/2024/08/AE_IR_Main-1-6-1.png" alt="Integrity Roofing & Exteriors">
+      <span class="ttl">Instant Roof Quote</span>
+      <button class="est-close" id="estClose" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+    </div>
+    <div class="est-progress"><i id="estBar"></i></div>
+    <div class="est-steps" id="estSteps"><span>Address</span><span>Measure</span><span>Your roof</span><span>Details</span><span>Pricing</span></div>
+    <div class="est-body">
+
+      <!-- 0: address -->
+      <div class="view" data-view="0">
+        <h3>Where's the roof?</h3>
+        <p class="sub">Start typing your address and choose it from the list.</p>
+        <form class="addr" data-addr-form data-in-modal autocomplete="off" style="max-width:640px">
+          <div class="addr-field"><svg><use href="#i-pin"/></svg><input type="text" name="address" id="estAddr" placeholder="123 Main St, Paducah, KY" aria-label="Home address" required></div>
+          <div class="suggest" role="listbox"></div>
+          <div class="err" data-err></div>
+          <button class="btn btn-red" type="submit" style="margin-top:6px">Measure My Roof <svg><use href="#i-arrow"/></svg></button>
+        </form>
+        <div class="qc-trust" style="max-width:640px;justify-content:flex-start;gap:24px">
+          <span><svg><use href="#i-shield"/></svg>No obligation</span>
+          <span><svg><use href="#i-sat"/></svg>Satellite measured</span>
+          <span><svg><use href="#i-lock"/></svg>We never sell your info</span>
+        </div>
+      </div>
+
+      <!-- 1: measuring -->
+      <div class="view" data-view="1">
+        <div class="est-split">
+          <div class="sat" id="satMeasure"></div>
+          <div>
+            <h3>Measuring your roof&hellip;</h3>
+            <p class="sub" id="measureAddr"></p>
+            <ul class="measure-list" id="measureList">
+              <li><span class="dot"></span>Locating your property</li>
+              <li><span class="dot"></span>Loading satellite imagery</li>
+              <li><span class="dot"></span>Tracing the roof outline</li>
+              <li><span class="dot"></span>Calculating roof area &amp; pitch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2: confirm roof -->
+      <div class="view" data-view="2">
+        <div class="est-split">
+          <div class="sat" id="satConfirm"><div id="confirmMap"></div><div class="map-hint" id="mapHint">Drag the pin onto your roof</div><div class="map-tools"><button type="button" id="traceUndo" hidden>Undo</button><button type="button" id="traceDone" hidden disabled>Done</button><button type="button" id="traceBtn">Trace my roof</button></div><div class="chip" id="confirmChip"></div><span class="credit" style="z-index:500">Imagery &copy; Esri</span></div>
+          <div>
+            <h3>Is this your roof?</h3>
+            <p class="sub" id="confirmNote"></p>
+            <div class="stat-box">
+              <div class="lbl">Estimated roof area</div>
+              <div class="big"><span id="areaOut">0</span> <span style="font-size:26px">sq ft</span></div>
+              <input type="range" id="areaRange" min="800" max="6000" step="50" aria-label="Adjust roof area">
+              <div class="note">Drag to adjust if it looks off. Includes pitch &amp; overhang.</div>
+            </div>
+            <div class="opt-group"><label class="t">Roof steepness</label>
+              <div class="seg" data-seg="pitch"><button type="button" data-v="low">Low<small>Easy to walk</small></button><button type="button" data-v="med" class="on">Moderate<small>Most homes</small></button><button type="button" data-v="steep">Steep<small>Hard to walk</small></button></div></div>
+            <div class="opt-group"><label class="t">Stories</label>
+              <div class="seg" data-seg="stories"><button type="button" data-v="1" class="on">1 Story</button><button type="button" data-v="2">2 Stories</button><button type="button" data-v="3">3+</button></div></div>
+          </div>
+        </div>
+        <div class="est-nav"><button class="link-back" data-go="0"><svg><use href="#i-back"/></svg>Change address</button><button class="btn btn-red" data-go="3">Yes, show my prices <svg><use href="#i-arrow"/></svg></button></div>
+      </div>
+
+      <!-- 3: contact gate -->
+      <div class="view" data-view="3">
+        <div class="est-split">
+          <form id="leadForm" novalidate>
+            <h3>Your prices are ready!</h3>
+            <p class="sub">Tell us where to send your quote. A real person from our local team &mdash; not a call center &mdash; will follow up only if you want.</p>
+            <div class="form-grid">
+              <div class="fld"><label for="fFirst">First name</label><input id="fFirst" autocomplete="given-name" required></div>
+              <div class="fld"><label for="fLast">Last name</label><input id="fLast" autocomplete="family-name" required></div>
+              <div class="fld full"><label for="fEmail">Email</label><input id="fEmail" type="email" autocomplete="email" required></div>
+              <div class="fld full"><label for="fPhone">Mobile phone</label><input id="fPhone" type="tel" autocomplete="tel" placeholder="(270) 555-0123" required></div>
+              <div class="fld full"><label for="fWhy">What's going on with your roof?</label>
+                <select id="fWhy"><option>Just exploring prices</option><option>Storm / hail damage</option><option>Leaking</option><option>Roof is getting old</option><option>Selling or buying a home</option></select></div>
+            </div>
+            <div class="err" id="leadErr"></div>
+            <button class="btn btn-red" type="submit" style="width:100%;margin-top:6px;padding:18px">Reveal My Prices <svg><use href="#i-arrow"/></svg></button>
+            <p class="fine">By submitting you agree Integrity Roofing &amp; Exteriors may contact you about your quote. Msg &amp; data rates may apply. Reply STOP to opt out.</p>
+          </form>
+          <div class="lock-preview">
+            <div class="blur">
+              <div class="mini-tier"><span>Good</span><span>$12,480</span></div>
+              <div class="mini-tier"><span>Better</span><span>$14,920</span></div>
+              <div class="mini-tier"><span>Best</span><span>$27,350</span></div>
+            </div>
+            <div class="lock"><svg><use href="#i-lock"/></svg>3 roofing options priced<br>for your home</div>
+          </div>
+        </div>
+        <div class="est-nav"><button class="link-back" data-go="2"><svg><use href="#i-back"/></svg>Back</button><span></span></div>
+      </div>
+
+      <!-- 4: pricing -->
+      <div class="view" data-view="4">
+        <div class="result-head">
+          <div><h3 id="resultHi">Here's your roof</h3><p class="sub" style="margin:0" id="resultAddr"></p></div>
+          <div class="result-meta" id="resultMeta"></div>
+        </div>
+        <div class="tiers" id="tiers"></div>
+        <div class="result-bar">
+          <div class="sel">You selected<b id="selName">&mdash;</b></div>
+          <button class="btn btn-red" data-go="5">Book My Free Inspection <svg><use href="#i-arrow"/></svg></button>
+        </div>
+        <p class="fine">Estimates include tear-off, underlayment, ventilation, flashing, labor and clean-up, based on satellite measurements. Final price confirmed after a free on-site inspection. Financing example: 9.99% APR for 120 months, subject to credit approval. Demo pricing for illustration only.</p>
+        <div class="est-nav"><button class="link-back" data-go="2"><svg><use href="#i-back"/></svg>Adjust roof details</button><a class="link-back" href="tel:18888795910"><svg><use href="#i-phone"/></svg>1-888-879-5910</a></div>
+      </div>
+
+      <!-- 5: book -->
+      <div class="view" data-view="5">
+        <div class="done-view">
+          <div class="ok"><svg><use href="#i-check"/></svg></div>
+          <h3 id="doneHi">You're all set!</h3>
+          <p class="sub" style="max-width:520px;margin:0 auto">Pick a time that works for a free, no-pressure inspection. Your project consultant will confirm by text.</p>
+          <div class="slots" id="slots"></div>
+          <div class="summary" id="summary"></div>
+          <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px">
+            <button class="btn btn-red" id="confirmBook">Confirm Inspection</button>
+            <button class="btn btn-outline" id="estDone">Back to Site</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+  $('#yr').textContent = new Date().getFullYear();
+
+  /* ---------- header / menu / reveal ---------- */
+  const nav = $('#nav');
+  addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 10), {passive:true});
+  const burger = $('#burger'), mm = $('#mobileMenu');
+  burger.addEventListener('click', () => { const o = mm.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+  $$('#mobileMenu a').forEach(a => a.addEventListener('click', () => mm.classList.remove('open')));
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+    $$('.reveal').forEach(el => io.observe(el));
+  } else $$('.reveal').forEach(el => el.classList.add('in'));
+
+  /* ---------- address autocomplete (Photon / OpenStreetMap) ---------- */
+  const BIAS = {lat:37.4, lon:-88.7}; // centre of service area
+  function fmt(p){
+    const line1 = [p.housenumber, p.street || p.name].filter(Boolean).join(' ');
+    const line2 = [p.city || p.town || p.village || p.county, p.state, p.postcode].filter(Boolean).join(', ');
+    return {line1: line1 || p.name || '', line2};
+  }
+  function setupAutocomplete(form){
+    const input = $('input', form), box = $('.suggest', form);
+    let t, items = [], active = -1, ctrl;
+    form._picked = null;
+    input.addEventListener('input', () => {
+      form._picked = null;
+      clearTimeout(t);
+      const q = input.value.trim();
+      if (q.length < 4) { box.classList.remove('open'); return; }
+      t = setTimeout(async () => {
+        try {
+          ctrl && ctrl.abort(); ctrl = new AbortController();
+          const r = await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=6&lat=${BIAS.lat}&lon=${BIAS.lon}&lang=en`, {signal:ctrl.signal});
+          const j = await r.json();
+          items = (j.features||[]).filter(f => f.properties.countrycode === 'US').slice(0,5);
+          render();
+        } catch(e) {}
+      }, 250);
+    });
+    function render(){
+      active = -1;
+      // keep the house number the visitor typed when the street-level match lacks one
+      const num = (input.value.match(/^\s*(\d+[A-Za-z]?)\s/) || [])[1];
+      items.forEach(f => {
+        f._exact = !!f.properties.housenumber; // a real address point, not a street match
+        if (num && !f.properties.housenumber && f.properties.street) f.properties.housenumber = num;
+      });
+      if (!items.length) { box.classList.remove('open'); return; }
+      box.innerHTML = items.map((f,i) => { const a = fmt(f.properties); return `<button type="button" data-i="${i}"><svg><use href="#i-pin"/></svg><span>${esc(a.line1)}<small>${esc(a.line2)}</small></span></button>`; }).join('');
+      box.classList.add('open');
+    }
+    function pick(i){
+      const f = items[i]; if (!f) return;
+      const a = fmt(f.properties);
+      input.value = a.line1 + (a.line2 ? ', ' + a.line2 : '');
+      form._picked = {label: input.value, lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0], exact: f._exact};
+      box.classList.remove('open');
+    }
+    box.addEventListener('mousedown', e => { const b = e.target.closest('button'); if (b) { e.preventDefault(); pick(+b.dataset.i); } });
+    input.addEventListener('keydown', e => {
+      if (!box.classList.contains('open')) return;
+      const bs = $$('button', box);
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); active = (active + (e.key==='ArrowDown'?1:-1) + bs.length) % bs.length; bs.forEach((b,i)=>b.classList.toggle('active', i===active)); }
+      else if (e.key === 'Enter' && active > -1) { e.preventDefault(); pick(active); }
+      else if (e.key === 'Escape') box.classList.remove('open');
+    });
+    input.addEventListener('blur', () => setTimeout(() => box.classList.remove('open'), 150));
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      if (!input.value.trim()) { input.focus(); return; }
+      box.classList.remove('open');
+      startEstimate(form._picked || {label: input.value.trim()});
+    });
+  }
+  $$('[data-addr-form]').forEach(setupAutocomplete);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  /* ---------- modal + step control ---------- */
+  const est = $('#est'), steps = $$('#estSteps span');
+  const S = {view:0, addr:null, lat:null, lon:null, poly:null, area:2200, pitch:'med', stories:'1', tier:1, name:'', slot:null, measured:false};
+  function show(v){
+    S.view = v;
+    $$('.view', est).forEach(el => el.classList.toggle('on', +el.dataset.view === v));
+    const s = Math.min(v, 4);
+    steps.forEach((el,i) => { el.classList.toggle('on', i===s); el.classList.toggle('done', i<s); });
+    $('#estBar').style.width = ((v+1)/6*100) + '%';
+    est.scrollTop = 0;
+    if (v === 2) renderConfirm();
+    if (v === 4) renderTiers();
+    if (v === 5) renderBook();
+  }
+  function openEst(v=0){ est.classList.add('open'); document.body.style.overflow='hidden'; show(v); if (v===0) setTimeout(()=>$('#estAddr').focus(), 60); }
+  function closeEst(){ est.classList.remove('open'); document.body.style.overflow=''; }
+  $$('[data-open-est]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); openEst(S.measured && S.view>=2 ? S.view : 0); }));
+  $('#estClose').addEventListener('click', closeEst);
+  $('#estDone').addEventListener('click', closeEst);
+  est.addEventListener('click', e => { if (e.target === est) closeEst(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape' && est.classList.contains('open')) closeEst(); });
+  $$('[data-go]', est).forEach(b => b.addEventListener('click', () => {
+    const g = +b.dataset.go;
+    if (g === 3 && S.name) return show(4); // already gave details
+    show(g);
+  }));
+
+  /* ---------- geocoding ---------- */
+  // US Census geocoder gives house-level points for street addresses (JSONP: it sends no CORS headers)
+  function censusGeocode(q){
+    return new Promise(res => {
+      const cb = '__census' + Date.now(), s = document.createElement('script');
+      const done = v => { delete window[cb]; s.remove(); res(v); };
+      window[cb] = j => { const m = (j.result && j.result.addressMatches || [])[0]; done(m ? {label: titleCase(m.matchedAddress), lat: m.coordinates.y, lon: m.coordinates.x} : null); };
+      s.onerror = () => done(null);
+      s.src = `https://geocoding.geo.census.gov/geocoder/locations/onelineaddress?benchmark=Public_AR_Current&format=jsonp&callback=${cb}&address=${encodeURIComponent(q)}`;
+      document.head.appendChild(s);
+      setTimeout(() => done(null), 7000);
+    });
+  }
+  const titleCase = s => s.toLowerCase().replace(/\b([a-z])/g, c => c.toUpperCase()).replace(/, ([a-z]{2}),/i, (m, st) => `, ${st.toUpperCase()},`);
+  // The Census geocoder interpolates along the street centerline, so its point usually lands in the
+  // road. An OpenStreetMap address point with the exact house number sits on the house itself, so
+  // prefer that whenever one exists near the Census match.
+  async function locate(pick){
+    if (pick.exact && pick.lat != null) return pick;
+    const num = (pick.label.match(/^\s*(\d+[A-Za-z]?)\s/) || [])[1];
+    if (num) {
+      const [c, p] = await Promise.all([censusGeocode(pick.label), photonExact(pick.label, num)]);
+      if (p && (!c || distM(c.lat, c.lon, p) < 400)) return {label: c ? c.label : p.label, lat: p.lat, lon: p.lon};
+      if (c) return c;
+    }
+    if (pick.lat != null) return pick;
+    return geocode(pick.label);
+  }
+  async function photonExact(q, num){
+    try {
+      const j = await (await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=5&lat=${BIAS.lat}&lon=${BIAS.lon}`)).json();
+      const f = (j.features||[]).find(f => f.properties.countrycode === 'US' && String(f.properties.housenumber).toLowerCase() === num.toLowerCase());
+      if (!f) return null;
+      const a = fmt(f.properties);
+      return {label: a.line1 + (a.line2 ? ', ' + a.line2 : ''), lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0]};
+    } catch(e) { return null; }
+  }
+  async function geocode(q){
+    const r = await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(q)}&limit=1&lat=${BIAS.lat}&lon=${BIAS.lon}`);
+    const j = await r.json(); const f = (j.features||[])[0];
+    if (!f) throw new Error('not found');
+    const a = fmt(f.properties);
+    return {label: a.line1 + (a.line2 ? ', ' + a.line2 : ''), lat: f.geometry.coordinates[1], lon: f.geometry.coordinates[0]};
+  }
+
+  /* ---------- building footprints ---------- */
+  // Returns every building near the address; the house is pre-selected and the visitor can tap
+  // others (detached garage, shop) to include them, or fix the pick if the pin landed next door.
+  // Primary: FEMA USA Structures (imagery-traced outlines for every US building, fast and CORS-enabled).
+  // Fallback: OpenStreetMap via Overpass.
+  async function withTimeout(ms, fn){
+    const ctl = new AbortController(); const to = setTimeout(()=>ctl.abort(), ms);
+    try { return await fn(ctl.signal); } catch(e) { return null; } finally { clearTimeout(to); }
+  }
+  const femaFootprints = (lat, lon) => withTimeout(8000, async signal => {
+    const url = 'https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/USA_Structures_View/FeatureServer/0/query' +
+      `?geometry=${lon},${lat}&geometryType=esriGeometryPoint&inSR=4326&distance=90&units=esriSRUnit_Meter` +
+      '&spatialRel=esriSpatialRelIntersects&outFields=OCC_CLS&returnGeometry=true&outSR=4326&f=json';
+    const j = await (await fetch(url, {signal})).json();
+    if (!j.features) return null;
+    return j.features.filter(f => f.geometry && f.geometry.rings && f.geometry.rings[0])
+      .map(f => ({pts: f.geometry.rings[0].map(([x, y]) => ({lat:y, lon:x})), res: f.attributes && f.attributes.OCC_CLS === 'Residential'}));
+  });
+  const osmFootprints = (lat, lon) => withTimeout(9000, async signal => {
+    const q = `[out:json][timeout:8];way(around:90,${lat},${lon})["building"];out geom;`;
+    const r = await fetch('https://overpass-api.de/api/interpreter', {method:'POST', body:'data='+encodeURIComponent(q), signal});
+    if (!r.ok) return null;
+    return ((await r.json()).elements||[]).filter(w => w.geometry).map(w => ({pts: w.geometry, res: /house|residential|detached/.test(w.tags && w.tags.building)}));
+  });
+  async function footprints(lat, lon){
+    const found = (await femaFootprints(lat, lon)) || (await osmFootprints(lat, lon)) || [];
+    return found.filter(f => f.pts.length > 3)
+      .map(f => ({pts:f.pts, res:f.res, m2:areaM2(f.pts), sel:false}))
+      .filter(b => b.m2 >= 15 && b.m2 <= 1500); // skip tiny sheds and large commercial outlines
+  }
+  // The building under the pin, else the closest house-sized building (measured to its nearest wall,
+  // not its middle, so a pin dropped in the road picks the house it fronts). Homes win close calls.
+  function pickHome(blds, lat, lon, maxD){
+    return blds.find(b => pip(lat, lon, b.pts)) ||
+      blds.filter(b => b.m2 >= 60)
+        .map(b => ({b, d: edgeDist(lat, lon, b.pts) - (b.res ? 4 : 0)}))
+        .filter(x => x.d < maxD).sort((a,b) => a.d - b.d).map(x => x.b)[0];
+  }
+  function edgeDist(lat, lon, g){
+    const k = Math.cos(lat*Math.PI/180), xy = p => [(p.lon-lon)*111320*k, (p.lat-lat)*111320];
+    let best = Infinity;
+    for (let i = 0; i < g.length - 1; i++) {
+      const [ax, ay] = xy(g[i]), [bx, by] = xy(g[i+1]), dx = bx-ax, dy = by-ay;
+      const t = Math.max(0, Math.min(1, -(ax*dx + ay*dy) / (dx*dx + dy*dy || 1)));
+      best = Math.min(best, Math.hypot(ax + t*dx, ay + t*dy));
+    }
+    return best;
+  }
+  function distM(lat, lon, c){ return Math.hypot((c.lat-lat)*111320, (c.lon-lon)*111320*Math.cos(lat*Math.PI/180)); }
+  const selected = () => (S.blds||[]).filter(b => b.sel);
+
+  /* ---------- Google Solar API (optional, most accurate) ---------- */
+  // Measured sloped roof area and per-plane pitch from Google's aerial 3D data — the same kind of
+  // data Roofle-style tools use. Paste a Maps Platform key with the Solar API enabled to turn it on.
+  const GOOGLE_SOLAR_KEY = '';
+  async function solarRoof(lat, lon){
+    if (!GOOGLE_SOLAR_KEY) return null;
+    try {
+      const r = await fetch(`https://solar.googleapis.com/v1/buildingInsights:findClosest?location.latitude=${lat}&location.longitude=${lon}&requiredQuality=MEDIUM&key=${GOOGLE_SOLAR_KEY}`);
+      if (!r.ok) return null;
+      const sp = (await r.json()).solarPotential;
+      const segs = (sp && sp.roofSegmentStats) || [];
+      if (!sp || !sp.wholeRoofStats || !segs.length) return null;
+      const tot = segs.reduce((s,g)=>s+g.stats.areaMeters2, 0);
+      const deg = segs.reduce((s,g)=>s+g.pitchDegrees*g.stats.areaMeters2, 0) / tot;
+      // 4/12 ≈ 18°, 7/12 ≈ 30°
+      return {sqft: sp.wholeRoofStats.areaMeters2 * 10.7639, pitch: deg < 20 ? 'low' : deg < 32 ? 'med' : 'steep', rise: Math.round(Math.tan(deg*Math.PI/180)*12), planes: segs.length};
+    } catch(e) { return null; }
+  }
+  function pip(lat, lon, g){ let c=false; for (let i=0,j=g.length-1;i<g.length;j=i++){ const a=g[i],b=g[j]; if (((a.lat>lat)!==(b.lat>lat)) && (lon < (b.lon-a.lon)*(lat-a.lat)/(b.lat-a.lat)+a.lon)) c=!c; } return c; }
+  function centroid(g){ return {lat:g.reduce((s,p)=>s+p.lat,0)/g.length, lon:g.reduce((s,p)=>s+p.lon,0)/g.length}; }
+  function areaM2(g){
+    const R=6378137, lat0=centroid(g).lat*Math.PI/180;
+    const xy = g.map(p => [p.lon*Math.PI/180*R*Math.cos(lat0), p.lat*Math.PI/180*R]);
+    let s=0; for (let i=0;i<xy.length;i++){ const [x1,y1]=xy[i],[x2,y2]=xy[(i+1)%xy.length]; s+=x1*y2-x2*y1; } return Math.abs(s/2);
+  }
+
+  /* ---------- satellite map (Esri World Imagery tiles) ---------- */
+  const Z = 19, TS = 256;
+  const proj = (lat, lon) => { const n = TS * 2**Z, r = lat*Math.PI/180; return {x:(lon+180)/360*n, y:(1 - Math.log(Math.tan(r) + 1/Math.cos(r))/Math.PI)/2*n}; };
+  function drawSat(el, lat, lon, opts={}){
+    const W = el.clientWidth || 600, H = el.clientHeight || 410;
+    const c = proj(lat, lon), ox = c.x - W/2, oy = c.y - H/2;
+    let html = '<div class="tiles">';
+    for (let tx = Math.floor(ox/TS); tx <= Math.floor((ox+W)/TS); tx++)
+      for (let ty = Math.floor(oy/TS); ty <= Math.floor((oy+H)/TS); ty++)
+        html += `<img alt="" src="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${Z}/${ty}/${tx}" style="left:${tx*TS-ox}px;top:${ty*TS-oy}px">`;
+    html += '</div>';
+    if (opts.scan) html += '<div class="grid"></div><div class="scan"></div>';
+    if (opts.blds && opts.blds.length) {
+      const pts = b => b.pts.map(p => { const q = proj(p.lat, p.lon); return `${(q.x-ox).toFixed(1)},${(q.y-oy).toFixed(1)}`; }).join(' ');
+      // unselected outlines first so the selected roof draws on top
+      const order = opts.blds.map((b,i) => [b,i]).sort((a,b) => a[0].sel - b[0].sel);
+      html += `<svg class="ov" viewBox="0 0 ${W} ${H}">${order.map(([b,i]) => `<polygon class="poly${b.sel?'':' alt'}" data-b="${i}" points="${pts(b)}"/>`).join('')}</svg>`;
+    } else if (opts.pin) {
+      html += '<svg class="pin"><use href="#i-pin"/></svg>';
+    }
+    if (opts.chip) html += `<div class="chip">${esc(opts.chip)}</div>`;
+    html += '<span class="credit">Imagery &copy; Esri</span>';
+    el.innerHTML = html;
+  }
+
+  /* ---------- run estimate ---------- */
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  async function startEstimate(pick){
+    $$('.suggest').forEach(b=>b.classList.remove('open'));
+    if (!est.classList.contains('open')) openEst(0);
+    $('#estAddr').value = pick.label;
+    const err = $('[data-err]', est); err.textContent = '';
+    show(1);
+    $('#measureAddr').textContent = pick.label;
+    const li = $$('#measureList li'); li.forEach(l => l.className = '');
+    const sat = $('#satMeasure'); sat.innerHTML = '<div class="grid"></div><div class="scan"></div>';
+    li[0].className='on';
+    let loc;
+    try { [loc] = await Promise.all([locate(pick), wait(500)]); } catch(e) { show(0); err.textContent = "We couldn't find that address. Try picking it from the list."; return; }
+    Object.assign(S, {addr:loc.label, lat:loc.lat, lon:loc.lon, blds:[], solar:null, footFt:null, bldsEdited:false, measured:false, manual:false});
+    $('#measureAddr').textContent = loc.label;
+    li[0].className='done';
+    li[1].className='on'; drawSat(sat, loc.lat, loc.lon, {scan:true, pin:true, chip:'Scanning property…'});
+    const fpP = footprints(loc.lat, loc.lon);
+    await wait(900); li[1].className='done';
+    li[2].className='on';
+    const blds = await fpP;
+    S.blds = blds; S.fetchAt = {lat:loc.lat, lon:loc.lon};
+    const home = pickHome(blds, loc.lat, loc.lon, 40);
+    if (home) { home.sel = true; Object.assign(S, roofPoint(home)); } // put the pin on the house, not the road
+    const solar = await solarRoof(S.lat, S.lon);
+    S.solar = solar;
+    const c = mapCenter();
+    if (selected().length) drawSat(sat, c.lat, c.lon, {blds, chip:'Roof outline detected'});
+    else drawSat(sat, loc.lat, loc.lon, {blds, pin:true, chip:blds.length ? 'Tap your home to outline it' : 'Satellite view loaded'});
+    await wait(1100); li[2].className='done';
+    li[3].className='on';
+    if (solar) {
+      S.pitch = solar.pitch;
+      $$('[data-seg="pitch"] button', est).forEach(b => b.classList.toggle('on', b.dataset.v === S.pitch));
+    }
+    recalcFoot();
+    S.area = roofArea();
+    await wait(800); li[3].className='done';
+    S.measured = true;
+    await wait(300);
+    show(2);
+  }
+  const PITCH = {low:{f:1.05, lab:1.0, txt:'Low pitch'}, med:{f:1.15, lab:1.06, txt:'Moderate pitch'}, steep:{f:1.35, lab:1.18, txt:'Steep pitch'}};
+  const STORY = {'1':1, '2':1.06, '3':1.12};
+  // footprint (m²) → ft², plus ~8% for eave and rake overhangs the outline misses
+  function recalcFoot(){ const sel = selected(); S.footFt = sel.length ? sel.reduce((s,b)=>s+b.m2, 0) * 10.7639 * 1.08 : null; }
+  function roofArea(){
+    // Google Solar measures the sloped area directly; use it while the measured pitch is kept
+    // and the visitor hasn't added or removed outlines.
+    if (S.solar && S.pitch === S.solar.pitch && !S.bldsEdited) return Math.round(S.solar.sqft/50)*50;
+    return Math.round(((S.footFt || 1900) * PITCH[S.pitch].f)/50)*50;
+  }
+  function mapCenter(){
+    const pts = selected().flatMap(b => b.pts);
+    return pts.length ? centroid(pts) : {lat:S.lat, lon:S.lon};
+  }
+  function setArea(a){
+    S.area = a;
+    const rng = $('#areaRange');
+    rng.max = Math.max(6000, Math.ceil(a*1.4/100)*100);
+    rng.value = a; $('#areaOut').textContent = (+a).toLocaleString();
+  }
+
+  // A point guaranteed to be on the roof (an L-shaped house's centroid can fall outside it).
+  function roofPoint(b){
+    const c = centroid(b.pts);
+    if (pip(c.lat, c.lon, b.pts)) return c;
+    const mids = b.pts.slice(0, -1).map(p => ({lat:(p.lat + c.lat)/2, lon:(p.lon + c.lon)/2}));
+    return mids.find(m => pip(m.lat, m.lon, b.pts)) || b.pts[0];
+  }
+
+  /* ---------- "Is this your roof?" map: pan, zoom, drag the pin, tap outlines ---------- */
+  let cmap, cpin, clayer;
+  const SEL_STYLE = {color:'#ff2a3d', weight:3, fillColor:'#d31225', fillOpacity:.32, bubblingMouseEvents:false};
+  const ALT_STYLE = {color:'#ffffff', weight:1.5, dashArray:'5 4', fillColor:'#ffffff', fillOpacity:.08, bubblingMouseEvents:false};
+  function initConfirmMap(){
+    if (cmap) return;
+    cmap = L.map('confirmMap', {attributionControl:false, maxZoom:21, tap:true});
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom:21, maxNativeZoom:19}).addTo(cmap);
+    clayer = L.layerGroup().addTo(cmap);
+    const icon = L.divIcon({className:'pin-icon', html:'<svg viewBox="0 0 24 24"><use href="#i-pin"/></svg>', iconSize:[40,40], iconAnchor:[20,38]});
+    cpin = L.marker([S.lat, S.lon], {draggable:true, icon, zIndexOffset:1000, autoPan:true}).addTo(cmap);
+    cpin.on('dragend', () => movePin(cpin.getLatLng()));
+    cmap.on('click', e => trace ? addCorner(e.latlng) : movePin(e.latlng));
+    new ResizeObserver(() => cmap.invalidateSize()).observe($('#confirmMap'));
+    traceLayer = L.layerGroup().addTo(cmap);
+  }
+
+  /* ---------- trace mode: tap the roof's corners when no outline exists (or it's wrong) ---------- */
+  let trace = null, traceLayer;
+  function setTrace(on){
+    trace = on ? [] : null;
+    $('#traceBtn').textContent = on ? 'Cancel' : 'Trace my roof';
+    $('#traceUndo').hidden = $('#traceDone').hidden = !on;
+    $('#mapHint').textContent = on ? 'Tap each corner of your roof' : 'Drag the pin onto your roof';
+    if (on) cpin.remove(); else cpin.addTo(cmap);
+    drawTrace();
+  }
+  function addCorner(ll){ trace.push([ll.lat, ll.lng]); drawTrace(); }
+  function drawTrace(){
+    traceLayer.clearLayers();
+    $('#traceDone').disabled = !trace || trace.length < 3;
+    if (!trace || !trace.length) return;
+    (trace.length > 2 ? L.polygon(trace, {...SEL_STYLE, dashArray:'6 4', interactive:false}) : L.polyline(trace, {color:'#ff2a3d', weight:3, interactive:false})).addTo(traceLayer);
+    trace.forEach(p => L.marker(p, {interactive:false, icon:L.divIcon({className:'trace-dot', iconSize:[12,12]})}).addTo(traceLayer));
+  }
+  $('#traceBtn').addEventListener('click', () => setTrace(!trace));
+  $('#traceUndo').addEventListener('click', () => { trace.pop(); drawTrace(); });
+  $('#traceDone').addEventListener('click', () => {
+    const pts = trace.map(([lat, lon]) => ({lat, lon})); pts.push(pts[0]);
+    const b = {pts, m2:areaM2(pts), res:true, sel:true};
+    S.blds.forEach(x => x.sel = false);
+    S.blds.push(b);
+    Object.assign(S, roofPoint(b));
+    S.bldsEdited = true;
+    setTrace(false);
+    measureChanged();
+  });
+
+  function drawConfirm(fit){
+    clayer.clearLayers();
+    S.blds.forEach(b => {
+      L.polygon(b.pts.map(p => [p.lat, p.lon]), b.sel ? SEL_STYLE : ALT_STYLE).addTo(clayer)
+        .on('click', e => {
+          if (trace) return addCorner(e.latlng);
+          b.sel = !b.sel;
+          if (b.sel && selected().length === 1) { Object.assign(S, roofPoint(b)); cpin.setLatLng([S.lat, S.lon]); }
+          S.bldsEdited = true;
+          measureChanged();
+        });
+    });
+    cpin.setLatLng([S.lat, S.lon]);
+    if (!fit) return;
+    const pts = selected().flatMap(b => b.pts.map(p => [p.lat, p.lon]));
+    if (pts.length) cmap.fitBounds(L.latLngBounds(pts), {maxZoom:20, padding:[50, 50]});
+    else cmap.setView([S.lat, S.lon], 19);
+  }
+  // Pin dropped or dragged: the building under it becomes the measured roof.
+  async function movePin(ll){
+    Object.assign(S, {lat:ll.lat, lon:ll.lng});
+    cpin.setLatLng(ll);
+    if (!S.fetchAt || distM(S.lat, S.lon, S.fetchAt) > 45) { // moved beyond the loaded outlines
+      $('#confirmNote').textContent = 'Loading building outlines here…';
+      S.blds = await footprints(S.lat, S.lon);
+      S.fetchAt = {lat:S.lat, lon:S.lon};
+    }
+    S.blds.forEach(b => b.sel = false);
+    const home = pickHome(S.blds, S.lat, S.lon, 12);
+    if (home) home.sel = true;
+    S.solar = await solarRoof(S.lat, S.lon);
+    S.bldsEdited = !S.solar;
+    measureChanged();
+  }
+  function measureChanged(){
+    S.manual = false;
+    recalcFoot(); setArea(roofArea());
+    drawConfirm(false); confirmNote();
+  }
+  function confirmNote(){
+    const n = selected().length, others = S.blds.length - n;
+    $('#confirmNote').textContent =
+      S.solar && !S.bldsEdited ? `Measured from Google aerial data: ${S.solar.planes} roof planes, about ${S.solar.rise}/12 pitch. Not your house? Drag the pin onto your roof.` :
+      n ? `We traced ${n > 1 ? n + ' structures' : 'your roof'} from satellite imagery. Not your house? Drag the pin onto your roof.${others ? ' Tap other outlines (like a detached garage) to add them.' : ''}` :
+      S.blds.length ? "No outline under the pin. Drag it onto your roof, tap your roof's outline, or use Trace my roof to tap its corners." :
+      "We couldn't find a building outline here. Use Trace my roof to tap its corners, or set the size with the slider.";
+  }
+  function renderConfirm(){
+    initConfirmMap();
+    if (trace) setTrace(false);
+    $('#confirmChip').textContent = S.addr;
+    // wait for the view to finish laying out, or the map fits the roof into a stale size
+    setTimeout(() => { cmap.invalidateSize(); drawConfirm(true); }, 80);
+    confirmNote();
+    setArea(S.area);
+  }
+  $('#areaRange').addEventListener('input', e => { S.area = +e.target.value; S.manual = true; $('#areaOut').textContent = S.area.toLocaleString(); });
+  $$('[data-seg]', est).forEach(seg => seg.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    $$('button', seg).forEach(x => x.classList.toggle('on', x===b));
+    S[seg.dataset.seg] = b.dataset.v;
+    if (seg.dataset.seg === 'pitch' && !S.manual) setArea(roofArea());
+  }));
+
+  /* ---------- lead form ---------- */
+  $('#leadForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = ['#fFirst','#fLast','#fEmail','#fPhone'].map(s => $(s));
+    let ok = true;
+    f.forEach(i => { const bad = !i.value.trim() || (i.type==='email' && !/^\S+@\S+\.\S+$/.test(i.value)) || (i.type==='tel' && i.value.replace(/\D/g,'').length < 10); i.classList.toggle('bad', bad); if (bad) ok = false; });
+    $('#leadErr').textContent = ok ? '' : 'Please fill in each field so we can send your quote.';
+    if (!ok) return;
+    S.name = $('#fFirst').value.trim();
+    // DEMO: hook this up to the CRM / webhook of choice.
+    console.log('Lead captured (demo):', {name:S.name+' '+$('#fLast').value, email:$('#fEmail').value, phone:$('#fPhone').value, reason:$('#fWhy').value, address:S.addr, roofSqFt:S.area});
+    show(4);
+  });
+
+  /* ---------- pricing ---------- */
+  const TIERS = [
+    {lvl:'Good', name:'Timberline HDZ', brand:'GAF architectural shingles', ppsq:465, swatch:'linear-gradient(135deg,#3b3b3b,#1f1f1f 40%,#4a4a4a)',
+      feats:['Lifetime limited shingle warranty','WindProof&trade; up to 130 mph','Full tear-off &amp; synthetic underlayment','Integrity workmanship guarantee']},
+    {lvl:'Better', name:'Timberline UHDZ', brand:'GAF ultra-dimensional shingles', ppsq:545, pop:'Most chosen', swatch:'linear-gradient(135deg,#5a4636,#2d241d 45%,#6d5a48)',
+      feats:['Everything in Good, plus:','Thicker, ultra-dimensional profile','Upgraded ridge cap &amp; ventilation','Eligible for GAF\'s top-tier warranties']},
+    {lvl:'Best', name:'Standing Seam Metal', brand:'Premium metal roofing system', ppsq:1050, swatch:'repeating-linear-gradient(90deg,#2b2f35 0 22px,#3e444c 22px 24px)',
+      feats:['50+ year lifespan','Superior hail &amp; wind performance','Energy-efficient reflective finish','Concealed fastener system']}
+  ];
+  const money = n => '$' + Math.round(n).toLocaleString();
+  function monthly(p){ const r = .0999/12, n = 120; return p * r / (1 - (1+r)**-n); }
+  function priceFor(t){ const sq = S.area/100 * 1.10; return Math.round(sq * t.ppsq * PITCH[S.pitch].lab * STORY[S.stories] / 10) * 10; }
+  function renderTiers(){
+    $('#resultHi').textContent = S.name ? `${S.name}, here are your options` : 'Here are your options';
+    $('#resultAddr').textContent = S.addr || '';
+    $('#resultMeta').innerHTML = `<span>${S.area.toLocaleString()} sq ft</span><span>${PITCH[S.pitch].txt}</span><span>${S.stories==='3'?'3+':S.stories} ${S.stories==='1'?'story':'stories'}</span>`;
+    $('#tiers').innerHTML = TIERS.map((t,i) => {
+      const p = priceFor(t), lo = p*0.95, hi = p*1.05;
+      return `<button type="button" class="tier ${i===S.tier?'on':''}" data-t="${i}">
+        ${t.pop?`<span class="pop">${t.pop}</span>`:''}<span class="radio"></span>
+        <div class="swatch" style="background:${t.swatch}"></div>
+        <span class="lvl">${t.lvl}</span><h4>${t.name}</h4><span class="brand">${t.brand}</span>
+        <div class="price">${money(lo)} &ndash; ${money(hi)}</div>
+        <div class="mo">or as low as <b>${money(monthly(lo))}/mo</b></div>
+        <ul>${t.feats.map(f=>`<li><svg><use href="#i-check"/></svg><span>${f}</span></li>`).join('')}</ul>
+      </button>`;
+    }).join('');
+    updateSel();
+  }
+  $('#tiers').addEventListener('click', e => { const b = e.target.closest('.tier'); if (!b) return; S.tier = +b.dataset.t; $$('.tier').forEach(x => x.classList.toggle('on', x===b)); updateSel(); });
+  function updateSel(){ const t = TIERS[S.tier], p = priceFor(t); $('#selName').textContent = `${t.lvl}: ${t.name} · ~${money(p)}`; }
+
+  /* ---------- booking ---------- */
+  function renderBook(){
+    const t = TIERS[S.tier], p = priceFor(t);
+    $('#doneHi').textContent = S.name ? `Great choice, ${S.name}!` : 'Great choice!';
+    const days = []; const d = new Date();
+    while (days.length < 4) { d.setDate(d.getDate()+1); if (d.getDay() !== 0) days.push(new Date(d)); }
+    const slots = days.flatMap(x => ['9:00 AM','1:00 PM'].map(h => `${x.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})} · ${h}`)).slice(0,6);
+    $('#slots').innerHTML = slots.map((s,i)=>`<button type="button" data-s="${esc(s)}" class="${i===0?'on':''}">${s}</button>`).join('');
+    S.slot = slots[0];
+    $('#summary').innerHTML = `<div><span>Address</span><b>${esc(S.addr||'')}</b></div><div><span>Roof size</span><b>${S.area.toLocaleString()} sq ft</b></div><div><span>Selected system</span><b>${t.lvl}: ${t.name}</b></div><div><span>Estimated price</span><b>${money(p*0.95)} &ndash; ${money(p*1.05)}</b></div><div><span>Inspection</span><b id="slotOut">${esc(S.slot)}</b></div>`;
+    $('#confirmBook').textContent = 'Confirm Inspection'; $('#confirmBook').disabled = false;
+  }
+  $('#slots').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; $$('#slots button').forEach(x=>x.classList.toggle('on',x===b)); S.slot = b.dataset.s; $('#slotOut').textContent = S.slot; });
+  $('#confirmBook').addEventListener('click', e => { e.currentTarget.textContent = '✓ Inspection requested'; e.currentTarget.disabled = true; console.log('Inspection requested (demo):', S.slot); });
+})();
+</script>
+</body>
+</html>

@@ -412,7 +412,9 @@
           <noscript><p class="form-fine">Turn on JavaScript to pick a time, or use the form.</p></noscript>
         </div>
 
-      <form class="form" id="form" action="https://formspree.io/f/meeydnzj" method="POST">
+      <!-- Posts to our own serverless function, which emails the lead to us
+           and a confirmation to the client. See api/contact.js. -->
+      <form class="form" id="form" action="/api/contact" method="POST">
         <div class="fr-row">
           <div class="fr">
             <label for="name">Name</label>
@@ -519,11 +521,41 @@
   </div>
 </footer>
 
+<!-- ============ CHAT ============ -->
+<div class="chat" id="chat">
+  <button class="chat-launcher" id="chatLauncher" aria-expanded="false" aria-controls="chatPanel">
+    <span class="chat-launcher-dot" aria-hidden="true"></span>
+    <span class="chat-launcher-text">Ask Shea</span>
+  </button>
+
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with Shea" hidden>
+    <div class="chat-head">
+      <span class="chat-av lg" aria-hidden="true"></span>
+      <div class="chat-who">
+        <b>Shea</b>
+        <span>Covanreach Media &middot; usually replies instantly</span>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="Close chat">&times;</button>
+    </div>
+
+    <div class="chat-log" id="chatLog" role="log" aria-live="polite"></div>
+
+    <form class="chat-form" id="chatForm">
+      <textarea id="chatInput" rows="1" maxlength="1000"
+                placeholder="Ask about ads, your site, anything&hellip;"
+                aria-label="Your message"></textarea>
+      <button type="submit" class="chat-send" id="chatSend" aria-label="Send">&uarr;</button>
+    </form>
+    <p class="chat-fine">AI assistant on Shea's site. Shea reads every booking personally.</p>
+  </div>
+</div>
+
 <!-- three.js powers the decorative hero object only; the page is fully
      usable if it fails to load. defer keeps it off the critical path. -->
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script defer src="scene.js"></script>
 <script defer src="stars.js"></script>
+<script defer src="chat.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

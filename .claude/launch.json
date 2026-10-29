@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "integrity-demo",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\sheac\\AppData\\Local\\Temp\\claude\\C--Users-sheac-covanreach-website\\b0f7a2a4-4a95-471e-aedd-ac67f139da7a\\scratchpad\\serve.ps1", "-Root", "C:\\Users\\sheac\\covanreach website\\demos\\integrity-roofing", "-Port", "8137"],
+      "port": 8137
+    },
+    {
+      "name": "integrity-demo-2",
+      "runtimeExecutable": "powershell",
+      "runtimeArgs": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "C:\\Users\\sheac\\AppData\\Local\\Temp\\claude\\C--Users-sheac-covanreach-website\\b0f7a2a4-4a95-471e-aedd-ac67f139da7a\\scratchpad\\serve.ps1", "-Root", "C:\\Users\\sheac\\covanreach website\\demos\\integrity-roofing", "-Port", "8138"],
+      "port": 8138
+    }
+  ]
+}
