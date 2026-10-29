@@ -216,4 +216,15 @@
   });
 
   load();
+
+  /* ---------- only show the launcher if chat actually works ----------
+     Until the API key is set, /api/chat reports configured:false. Hiding
+     the whole widget is better than letting someone type a question and
+     get an error back. Once the key lands, this starts passing on its
+     own — no code change needed. */
+  root.hidden = true;
+  fetch('/api/chat', { method: 'GET' })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => { if (d && d.configured) root.hidden = false; })
+    .catch(() => { /* offline or not deployed — stay hidden */ });
 })();

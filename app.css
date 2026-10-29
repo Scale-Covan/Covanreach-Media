@@ -835,3 +835,5 @@ footer{
   .chat-panel{ animation:none; }
   .chat-typing i{ animation:none; opacity:.5; }
 }
+
+.chat[hidden]{ display:none !important; }
